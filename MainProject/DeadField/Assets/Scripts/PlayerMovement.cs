@@ -6,24 +6,24 @@ public class PlayerMovement : MonoBehaviour
 	//public float turnSmoothing = 15f;
 	public float speed = 8.0f;
 	public float jumpForce = 50.0f;
+	//public float force = 25.0f;
 
 	bool isGrounded = true;
 	Rigidbody playerRigidbody;
 	int floorMask;
 	float camRayLength = 100f;
+	Animator anim;
 
-	//Animator anim;
-	
 	void Awake()
 	{
 		floorMask = LayerMask.GetMask ("Floor");
-		//anim = GetComponent <Animator> ();
+		anim = GetComponent <Animator> ();
 		playerRigidbody = GetComponent <Rigidbody> ();
 	}
 
 	void FixedUpdate ()
 	{
-		rigidbody.AddForce(Physics.gravity * rigidbody.mass);
+		playerRigidbody.AddForce(Physics.gravity * playerRigidbody.mass);
 		float h = Input.GetAxis ("Horizontal");
 		float v = Input.GetAxis ("Vertical");
 
@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
 		Move (h, v);
 		Turning ();
+		Attack ();
 
 		/*if (h != 0 || v != 0)
 			Rotate (h, v);*/
@@ -42,13 +43,16 @@ public class PlayerMovement : MonoBehaviour
 
 	void Jump () 
 	{
-		rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+		playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 	}
 
-	void Move (float horizontal, float vertical)
+	void Move (float h, float v)
 	{
-		Vector3 move = new Vector3 (horizontal, 0.0f, vertical);
+		Vector3 move = new Vector3 (h, 0.0f, v);
 		transform.position += Vector3.ClampMagnitude (move, 1.0f) * speed * Time.deltaTime;
+
+		bool running = h != 0f || v != 0f;
+		anim.SetBool ("IsRunning", running);
 	}
 
 	void Turning()
@@ -64,6 +68,27 @@ public class PlayerMovement : MonoBehaviour
 			playerRigidbody.MoveRotation(newRotation);
 		}
 	}
+
+	void Attack()
+	{
+		if (Input.GetMouseButtonDown (0)) 
+		{
+			anim.SetTrigger ("Attack");
+		}
+	}
+
+	void OnCollisionEnter()
+	{
+		isGrounded = true;
+	}
+
+	//***********************To implement - knockback*********************************************** 
+	/*void OnTriggerEnter(Collider hit)
+	{
+		if (hit.gameObject.tag == "Player")
+			hit.rigidbody.AddForce (Vector3.forward * force);
+	}*/
+
 	// ************************Old rotate (via wasd)*************************
 	/*void Rotate (float horizontal, float vertical)
 	{
@@ -74,17 +99,4 @@ public class PlayerMovement : MonoBehaviour
 
 		rigidbody.MoveRotation(newRotation);
 	}*/
-	
-	//********************************To implement***********************
-	/*void Animating(float h, float v)
-	{
-		bool walking = h != 0f || v != 0f;
-		anim.SetBool ("IsWalking", walking);
-
-	}*/
-
-	void OnCollisionEnter()
-	{
-		isGrounded = true;
-	}
 }
