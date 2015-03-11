@@ -48,8 +48,9 @@ public class PlayerMovement : MonoBehaviour
 
 		if (Input.GetButtonDown("Fire1")&& timer >= timeBetweenAttacks && Time.timeScale != 0) 
 		{
-			Invoke("Attack", .5f);
+			timer = 0.0f;
 			anim.SetTrigger ("Attack");
+			Invoke("Attack", .5f);
 		}
 
 		/*if (h != 0 || v != 0)
@@ -86,8 +87,6 @@ public class PlayerMovement : MonoBehaviour
 
 	void Attack()
 	{
-		timer = 0.0f;
-
 		Vector3 DirectionRay = transform.TransformDirection(Vector3.forward);
 		Debug.DrawRay(transform.position + transform.up, DirectionRay * attactRange , Color.blue);
 
