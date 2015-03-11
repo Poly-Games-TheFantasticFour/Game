@@ -6,23 +6,33 @@ public class PlayerMovement : MonoBehaviour
 	//public float turnSmoothing = 15f;
 	public float speed = 8.0f;
 	public float jumpForce = 50.0f;
-	//public float force = 25.0f;
+	public float attactForce = 25.0f;
+	public float timeBetweenAttacks = 0.88f;
+	public float attactRange = 2.0f;
 
 	bool isGrounded = true;
-	Rigidbody playerRigidbody;
 	int floorMask;
+	int hitMask;
 	float camRayLength = 100f;
-	Animator anim;
+	float timer;
 
+	Rigidbody playerRigidbody;
+	Animator anim;
+	Ray shootRay;
+	RaycastHit shootHit;
+	
 	void Awake()
 	{
 		floorMask = LayerMask.GetMask ("Floor");
+		hitMask = LayerMask.GetMask ("Melee");
 		anim = GetComponent <Animator> ();
 		playerRigidbody = GetComponent <Rigidbody> ();
 	}
 
 	void FixedUpdate ()
 	{
+		timer += Time.deltaTime;
+		
 		playerRigidbody.AddForce(Physics.gravity * playerRigidbody.mass);
 		float h = Input.GetAxis ("Horizontal");
 		float v = Input.GetAxis ("Vertical");
@@ -35,7 +45,11 @@ public class PlayerMovement : MonoBehaviour
 
 		Move (h, v);
 		Turning ();
-		Attack ();
+
+		if (Input.GetButtonDown ("Fire1")&& timer >= timeBetweenAttacks && Time.timeScale != 0) 
+		{
+			Attack ();
+		}
 
 		/*if (h != 0 || v != 0)
 			Rotate (h, v);*/
@@ -71,23 +85,20 @@ public class PlayerMovement : MonoBehaviour
 
 	void Attack()
 	{
-		if (Input.GetMouseButtonDown (0)) 
-		{
-			anim.SetTrigger ("Attack");
-		}
-	}
+		Vector3 DirectionRay = transform.TransformDirection(Vector3.forward);
+		Debug.DrawRay(transform.position + transform.up, DirectionRay * attactRange , Color.blue);
 
+		if(Physics.Raycast (transform.position + transform.up, DirectionRay, out shootHit, attactRange, hitMask))
+		{
+			shootHit.rigidbody.AddForce(DirectionRay.normalized * attactForce, ForceMode.Impulse); 
+		}
+		anim.SetTrigger ("Attack");
+	}
+				
 	void OnCollisionEnter()
 	{
 		isGrounded = true;
 	}
-
-	//***********************To implement - knockback*********************************************** 
-	/*void OnTriggerEnter(Collider hit)
-	{
-		if (hit.gameObject.tag == "Player")
-			hit.rigidbody.AddForce (Vector3.forward * force);
-	}*/
 
 	// ************************Old rotate (via wasd)*************************
 	/*void Rotate (float horizontal, float vertical)
