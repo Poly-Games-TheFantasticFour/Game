@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 	int floorMask;
 	int hitMask;
 	float camRayLength = 100f;
-	float timer;
+	float timer = 0.0f;
 
 	Rigidbody playerRigidbody;
 	Animator anim;
@@ -46,9 +46,10 @@ public class PlayerMovement : MonoBehaviour
 		Move (h, v);
 		Turning ();
 
-		if (Input.GetButtonDown ("Fire1")&& timer >= timeBetweenAttacks && Time.timeScale != 0) 
+		if (Input.GetButtonDown("Fire1")&& timer >= timeBetweenAttacks && Time.timeScale != 0) 
 		{
-			Attack ();
+			Invoke("Attack", .5f);
+			anim.SetTrigger ("Attack");
 		}
 
 		/*if (h != 0 || v != 0)
@@ -85,6 +86,8 @@ public class PlayerMovement : MonoBehaviour
 
 	void Attack()
 	{
+		timer = 0.0f;
+
 		Vector3 DirectionRay = transform.TransformDirection(Vector3.forward);
 		Debug.DrawRay(transform.position + transform.up, DirectionRay * attactRange , Color.blue);
 
@@ -92,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			shootHit.rigidbody.AddForce(DirectionRay.normalized * attactForce, ForceMode.Impulse); 
 		}
-		anim.SetTrigger ("Attack");
+
 	}
 				
 	void OnCollisionEnter()
