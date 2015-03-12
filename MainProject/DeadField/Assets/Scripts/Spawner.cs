@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour {
 	void spawn () 
 	{
 		 {
-			Vector3 spawnPoint = new Vector3 (Random.Range (-15.0F, 15.0F), 2.5F, Random.Range (-15.0F, 15.0F)); 
+			Vector3 spawnPoint = new Vector3 (Random.Range (0F, 35F), 2.5F, Random.Range (0F, 35.0F)); 
 			Instantiate (powerUp, spawnPoint/*endroit*/, transform.rotation);
 		} 
 
