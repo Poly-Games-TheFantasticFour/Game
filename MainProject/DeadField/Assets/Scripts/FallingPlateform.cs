@@ -21,6 +21,9 @@ public class FallingPlateform : MonoBehaviour {
 
 			yield return new WaitForSeconds(timeBetweenNumber);
 		}
+		gameObject.renderer.material.color = Color.white;
+
+		yield return new WaitForSeconds (timeBetweenNumber);
 		rigidbody.useGravity = true;
 		rigidbody.isKinematic = false;
 	}
