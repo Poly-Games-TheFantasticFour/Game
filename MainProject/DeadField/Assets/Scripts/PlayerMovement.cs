@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 	bool isGrounded = true;
 	int floorMask;
 	int hitMask;
-	float camRayLength = 100f;
+	float camRayLength = 200f;
 	float timer = 0.0f;
 
 	Rigidbody playerRigidbody;
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 		float h = Input.GetAxis ("Horizontal");
 		float v = Input.GetAxis ("Vertical");
 
-		if (Input.GetButtonDown("Jump") && isGrounded) 
+		if (Input.GetButton("Jump") && isGrounded) 
 		{
 			Jump ();
 			isGrounded = false;
