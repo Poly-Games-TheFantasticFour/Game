@@ -4,10 +4,10 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
 	//public float turnSmoothing = 15f;
-	public float speed = 8.0f;
+	public static float speed = 8.0f; //besoin detre static pour pouvoir sen servir dansun autre script
 	public float jumpForce = 50.0f;
-	public float attactForce = 25.0f;
-	public float timeBetweenAttacks = 0.88f;
+	public static float attactForce = 50.0f;
+	public static float timeBetweenAttacks = 0.88f;
 	public float attactRange = 2.0f;
 
 	bool isGrounded = true;
