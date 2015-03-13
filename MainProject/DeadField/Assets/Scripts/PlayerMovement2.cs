@@ -5,7 +5,7 @@ public class PlayerMovement2 : MonoBehaviour {
 	public float turnSmoothing = 15f;
 	public static float speed = 8.0f; //besoin detre static pour pouvoir sen servir dansun autre script
 	public float jumpForce = 50.0f;
-	public static float attactForce = 50.0f;
+	public static float attactForce = 75.0f;
 	public static float timeBetweenAttacks = 0.88f;
 	public float attactRange = 2.0f;
 	public float jumpCheckDist = 1.0f;
@@ -110,14 +110,18 @@ public class PlayerMovement2 : MonoBehaviour {
 	
 	void Attack()
 	{
-		Vector3 DirectionRay = transform.TransformDirection(Vector3.forward);
-		Debug.DrawRay(transform.position + transform.up, DirectionRay * attactRange , Color.blue);
+		Vector3 DirectionRay = transform.TransformDirection (Vector3.forward);
+		Vector3 right = new Vector3 (0.25f, 1.0f, 0.0f);
+		Vector3 left = new Vector3 (-0.25f, 1.0f, 0f);
 		
-		if(Physics.Raycast (transform.position + transform.up, DirectionRay, out shootHit, attactRange, hitMask))
+		Debug.DrawRay (transform.position + transform.up, DirectionRay * attactRange, Color.blue);
+		Debug.DrawRay (transform.position + right, DirectionRay * attactRange, Color.blue);
+		Debug.DrawRay (transform.position + left, DirectionRay * attactRange, Color.blue);
+		
+		if (Physics.Raycast (transform.position + transform.up, DirectionRay, out shootHit, attactRange, hitMask) || Physics.Raycast (transform.position + right, DirectionRay, out shootHit, attactRange, hitMask) || Physics.Raycast (transform.position + left, DirectionRay, out shootHit, attactRange, hitMask)) 
 		{
-			shootHit.rigidbody.AddForce(DirectionRay.normalized * attactForce, ForceMode.Impulse); 
+			shootHit.rigidbody.AddForce (DirectionRay.normalized * attactForce, ForceMode.Impulse); 
 		}
-		
 	}
 	
 	/*void OnCollisionEnter()
