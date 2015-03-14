@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+	public AudioClip getHitClip;
+	public AudioClip attackClip;
 	//public float turnSmoothing = 15f;
 	public static float speed = 8.0f; //besoin detre static pour pouvoir sen servir dansun autre script
 	public float jumpForce = 50.0f;
@@ -10,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 	public static float timeBetweenAttacks = 0.88f;
 	public float attactRange = 2.0f;
 	public float jumpCheckDist = 1.0f;
+	AudioSource playerSound;
+
 
 	//bool isGrounded = true;
 	int floorMask, hitMask, jumpMask;
@@ -27,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 		hitMask = LayerMask.GetMask ("Melee");
 		anim = GetComponent <Animator> ();
 		playerRigidbody = GetComponent <Rigidbody> ();
+		playerSound = GetComponent <AudioSource> ();
 	}
 
 	void FixedUpdate ()
@@ -122,7 +127,14 @@ public class PlayerMovement : MonoBehaviour
 		if (Physics.Raycast (transform.position + transform.up, DirectionRay, out shootHit, attactRange, hitMask) || Physics.Raycast (transform.position + right, DirectionRay, out shootHit, attactRange, hitMask) || Physics.Raycast (transform.position + left, DirectionRay, out shootHit, attactRange, hitMask)) 
 		{
 			shootHit.rigidbody.AddForce (DirectionRay.normalized * attactForce, ForceMode.Impulse); 
+			playerSound.clip = getHitClip;
+
+
 		}
+		else
+			playerSound.clip = attackClip;
+		playerSound.Play ();
+
 	}
 				
 	/*void OnCollisionEnter()
