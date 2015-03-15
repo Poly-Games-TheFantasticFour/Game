@@ -3,9 +3,10 @@ using System.Collections;
 
 
 public class prendrePowerUp : MonoBehaviour {
-	float getspeed=PlayerMovement.speed; 					//accede au variable dun autre script(PlayerMovement)
-	float getattactForce=PlayerMovement.attactForce;		//http://answers.unity3d.com/questions/400977/changing-a-variable-in-one-script-using-another-sc.html
-	float gettimeBetweenAttacks=PlayerMovement.timeBetweenAttacks;
+
+	float getspeed = PlayerMovement.speed; 					//accede au variable dun autre script(PlayerMovement)
+	float getattactForce = PlayerMovement.attactForce;		//http://answers.unity3d.com/questions/400977/changing-a-variable-in-one-script-using-another-sc.html
+	float gettimeBetweenAttacks = PlayerMovement.timeBetweenAttacks;
 	float quelPowerUp;
 	float nPowerup = 2.0F;
 	public static bool estGros = false;
@@ -39,7 +40,6 @@ public class prendrePowerUp : MonoBehaviour {
 
 			StartCoroutine (actif());
 		}
-
 	}
 
 	IEnumerator actif(){
@@ -60,16 +60,16 @@ public class prendrePowerUp : MonoBehaviour {
 		estGros = true;
 		transform.localScale = new Vector3 (10F, 10F, 10F); 
 		transform.rigidbody.mass = 9.5F; 
-		PlayerMovement.speed =6.0F;
-		PlayerMovement.attactForce =125.0F;
-		PlayerMovement.timeBetweenAttacks =0.88f;
+		PlayerMovement.speed = 6.0F;
+		PlayerMovement.attactForce = 100.0F;
+		PlayerMovement.timeBetweenAttacks = 0.88f;
 	}
 	void petit (){
 		transform.localScale = new Vector3 (2.8F, 2.8F, 2.8F); 
 		transform.rigidbody.mass = 5f; 
-		PlayerMovement.speed =10F;
-		PlayerMovement.timeBetweenAttacks =0.40F;
-		PlayerMovement.attactForce =50.0f;
+		PlayerMovement.speed = 10F;
+		PlayerMovement.timeBetweenAttacks = 0.40F;
+		PlayerMovement.attactForce = 50.0f;
 	}
 	void normal(){
 		estGros = false;
@@ -77,9 +77,9 @@ public class prendrePowerUp : MonoBehaviour {
 		tempsActivation = 0.0f;
 		transform.localScale = new Vector3 (5.0F, 5.0F, 5.0F); 
 		transform.rigidbody.mass = 6f; 
-		PlayerMovement.speed =8F;
-		PlayerMovement.attactForce =50.0f;
-		PlayerMovement.timeBetweenAttacks =0.88f;
+		PlayerMovement.speed = 8F;
+		PlayerMovement.attactForce = 50.0f;
+		PlayerMovement.timeBetweenAttacks = 0.88f;
 
 
 	}

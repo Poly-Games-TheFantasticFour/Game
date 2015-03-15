@@ -3,8 +3,6 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-	public AudioClip getHitClip;
-	public AudioClip attackClip;
 	//public float turnSmoothing = 15f;
 	public static float speed = 8.0f; //besoin detre static pour pouvoir sen servir dansun autre script
 	public float jumpForce = 50.0f;
@@ -13,8 +11,10 @@ public class PlayerMovement : MonoBehaviour
 	public float attactRange = 2.0f;
 	public float jumpCheckDist = 1.0f;
 	public static bool attaque = false;
-	AudioSource playerSound;
 
+	public AudioClip getHitClip;
+	public AudioClip attackClip;
+	AudioSource playerSound;
 
 	//bool isGrounded = true;
 	int floorMask, hitMask, jumpMask;
@@ -131,12 +131,10 @@ public class PlayerMovement : MonoBehaviour
 			playerSound.clip = getHitClip;
 			attaque = true;
 
-
 		}
 		else
 			playerSound.clip = attackClip;
 		playerSound.Play ();
-
 	}
 				
 	/*void OnCollisionEnter()
