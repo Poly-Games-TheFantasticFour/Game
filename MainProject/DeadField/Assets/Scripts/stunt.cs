@@ -3,7 +3,8 @@ using System.Collections;
 
 public class stunt : MonoBehaviour {
 	bool getattaque=PlayerMovement.attaque;
-	float getspeed=PlayerMovement2.speed; 
+	float getspeed=PlayerMovement2.speed;
+	Animator anim;
 	
 	void Update () {
 		if (PlayerMovement.attaque== true && prendrePowerUp.estGros == true) {
@@ -14,6 +15,9 @@ public class stunt : MonoBehaviour {
 	
 	
 	IEnumerator stunted(){
+		anim = GetComponent <Animator> ();
+		bool running = false;
+		anim.SetBool ("IsRunning", running);
 		PlayerMovement.attaque= false;
 		yield return new WaitForSeconds(1.0F);
 		PlayerMovement2.speed = 0.0F;

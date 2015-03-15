@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class prendrePowerUp : MonoBehaviour {
+public class prendrePowerUp2 : MonoBehaviour {
 	float getspeed=PlayerMovement.speed; 					//accede au variable dun autre script(PlayerMovement)
 	float getattactForce=PlayerMovement.attactForce;		//http://answers.unity3d.com/questions/400977/changing-a-variable-in-one-script-using-another-sc.html
 	float gettimeBetweenAttacks=PlayerMovement.timeBetweenAttacks;
