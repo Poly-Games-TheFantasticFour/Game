@@ -9,6 +9,7 @@ public class PlayerMovement2 : MonoBehaviour {
 	public static float timeBetweenAttacks = 0.88f;
 	public float attactRange = 2.0f;
 	public float jumpCheckDist = 1.0f;
+	public static bool attaque = false;
 	public AudioClip getHit;
 	
 	//bool isGrounded = true;
@@ -122,6 +123,7 @@ public class PlayerMovement2 : MonoBehaviour {
 		if (Physics.Raycast (transform.position + transform.up, DirectionRay, out shootHit, attactRange, hitMask) || Physics.Raycast (transform.position + right, DirectionRay, out shootHit, attactRange, hitMask) || Physics.Raycast (transform.position + left, DirectionRay, out shootHit, attactRange, hitMask)) 
 		{
 			shootHit.rigidbody.AddForce (DirectionRay.normalized * attactForce, ForceMode.Impulse); 
+			attaque = true; 
 		}
 	}
 	

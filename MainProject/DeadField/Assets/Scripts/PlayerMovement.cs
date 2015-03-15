@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 	public static float timeBetweenAttacks = 0.88f;
 	public float attactRange = 2.0f;
 	public float jumpCheckDist = 1.0f;
+	public static bool attaque = false;
 	AudioSource playerSound;
 
 
@@ -128,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			shootHit.rigidbody.AddForce (DirectionRay.normalized * attactForce, ForceMode.Impulse); 
 			playerSound.clip = getHitClip;
+			attaque = true;
 
 
 		}
