@@ -78,7 +78,7 @@ public class prendrePowerUp : MonoBehaviour {
 		transform.localScale = new Vector3 (5.0F, 5.0F, 5.0F); 
 		transform.rigidbody.mass = 6f; 
 		PlayerMovement.speed = 8F;
-		PlayerMovement.attactForce = 50.0f;
+		PlayerMovement.attactForce = 75.0f;
 		PlayerMovement.timeBetweenAttacks = 0.88f;
 
 

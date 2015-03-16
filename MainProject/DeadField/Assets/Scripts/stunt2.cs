@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class stunt : MonoBehaviour {
+public class stunt2 : MonoBehaviour {
 	bool getattaque=PlayerMovement.attaque;
 	float getspeed=PlayerMovement2.speed;
 	Animator anim;
@@ -17,7 +17,6 @@ public class stunt : MonoBehaviour {
 		bool running = false;
 		anim.SetBool ("IsRunning", running);
 		PlayerMovement.attaque= false;
-		//yield return new WaitForSeconds(1.0F);
 		yield return new WaitForSeconds (.1F);
 		PlayerMovement2.speed = 0.0F;
 		yield return new WaitForSeconds (1.0F);

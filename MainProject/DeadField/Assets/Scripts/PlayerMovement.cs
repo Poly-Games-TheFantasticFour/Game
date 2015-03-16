@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 	public float attactRange = 2.0f;
 	public float jumpCheckDist = 1.0f;
 	public static bool attaque = false;
+	public float attackRadius = 0.75f;
 
 	public AudioClip getHitClip;
 	public AudioClip attackClip;
@@ -118,19 +119,13 @@ public class PlayerMovement : MonoBehaviour
 	void Attack()
 	{
 		Vector3 DirectionRay = transform.TransformDirection (Vector3.forward);
-		Vector3 right = new Vector3 (0.25f, 1.0f, 0.0f);
-		Vector3 left = new Vector3 (-0.25f, 1.0f, 0f);
-
 		Debug.DrawRay (transform.position + transform.up, DirectionRay * attactRange, Color.blue);
-		Debug.DrawRay (transform.position + right, DirectionRay * attactRange, Color.blue);
-		Debug.DrawRay (transform.position + left, DirectionRay * attactRange, Color.blue);
-
-		if (Physics.Raycast (transform.position + transform.up, DirectionRay, out shootHit, attactRange, hitMask) || Physics.Raycast (transform.position + right, DirectionRay, out shootHit, attactRange, hitMask) || Physics.Raycast (transform.position + left, DirectionRay, out shootHit, attactRange, hitMask)) 
+		
+		if (Physics.SphereCast (transform.position + transform.up, attackRadius, DirectionRay, out shootHit, attactRange, hitMask) || Physics.Raycast (transform.position + transform.up, DirectionRay, out shootHit, attactRange, hitMask)) 
 		{
 			shootHit.rigidbody.AddForce (DirectionRay.normalized * attactForce, ForceMode.Impulse); 
 			playerSound.clip = getHitClip;
 			attaque = true;
-
 		}
 		else
 			playerSound.clip = attackClip;

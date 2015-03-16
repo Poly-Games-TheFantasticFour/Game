@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class stuntjoeur1 : MonoBehaviour {
+public class stunt1 : MonoBehaviour {
 	bool getattaque=PlayerMovement2.attaque;
 	float getspeed=PlayerMovement.speed; 
 	Animator anim; //ici

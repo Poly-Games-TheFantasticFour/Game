@@ -55,8 +55,8 @@
      <Compile Include="Assets\Scripts\prendrePowerUp.cs" />
      <Compile Include="Assets\Scripts\prendrePowerUp2.cs" />
      <Compile Include="Assets\Scripts\rotationPower.cs" />
-     <Compile Include="Assets\Scripts\stunt.cs" />
-     <Compile Include="Assets\Scripts\stuntjoeur1.cs" />
+     <Compile Include="Assets\Scripts\stunt1.cs" />
+     <Compile Include="Assets\Scripts\stunt2.cs" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Monster2\Shaders\specillumShader.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
