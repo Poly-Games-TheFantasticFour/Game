@@ -58,14 +58,14 @@ public class prendrePowerUp2 : MonoBehaviour {
 	}
 	void grossir(){
 		estGros = true;
-		transform.localScale = new Vector3 (10F, 10F, 10F); 
+		transform.localScale = new Vector3 (3F, 3F, 3F); 
 		transform.rigidbody.mass = 9.5F; 
 		PlayerMovement2.speed = 6.0F;
 		PlayerMovement2.attactForce = 100.0F;
 		PlayerMovement2.timeBetweenAttacks = 0.88f;
 	}
 	void petit (){
-		transform.localScale = new Vector3 (2.8F, 2.8F, 2.8F); 
+		transform.localScale = new Vector3 (0.75F, 0.75F, 0.75F); 
 		transform.rigidbody.mass = 5f; 
 		PlayerMovement2.speed = 10F;
 		PlayerMovement2.timeBetweenAttacks = 0.40F;
@@ -75,7 +75,7 @@ public class prendrePowerUp2 : MonoBehaviour {
 		estGros = false;
 		estActif = false;
 		tempsActivation = 0.0f;
-		transform.localScale = new Vector3 (5.0F, 5.0F, 5.0F); 
+		transform.localScale = new Vector3 (1.5F, 1.5F, 1.5F); 
 		transform.rigidbody.mass = 6f; 
 		PlayerMovement2.speed = 8F;
 		PlayerMovement2.attactForce = 50.0f;

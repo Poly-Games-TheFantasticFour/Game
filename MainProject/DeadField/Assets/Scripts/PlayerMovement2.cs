@@ -56,7 +56,7 @@ public class PlayerMovement2 : MonoBehaviour {
 		{
 			timer = 0.0f;
 			anim.SetTrigger ("Attack");
-			Invoke("Attack", .5f);
+			Invoke("Attack", .4f);
 		}
 		
 		if (h != 0 || v != 0)
@@ -89,6 +89,7 @@ public class PlayerMovement2 : MonoBehaviour {
 	
 	void Jump () 
 	{
+		anim.SetTrigger ("Jump");
 		playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 	}
 	
