@@ -17,9 +17,11 @@ public class stunt1 : MonoBehaviour {
 		bool running = false;
 		anim.SetBool ("IsRunning", running); // ici
 		PlayerMovement2.attaque = false;
-		yield return new WaitForSeconds(.1F);
+		//yield return new WaitForSeconds(.1F);
+		transform.localScale = new Vector3 (7.0F, 1.0F, 7.0F); 
 		PlayerMovement.speed = 0.0F;
 		yield return new WaitForSeconds (1.0F);
+		transform.localScale = new Vector3 (5.0F, 5.0F, 5.0F);
 		PlayerMovement.speed = 8.0F;
 		
 		
