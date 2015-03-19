@@ -1,11 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\prendrePowerUp.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\prendrePowerUp2.cs">
     <Files>
-      <File FileName="DeadField.sln" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\prendrePowerUp.cs" Line="11" Column="17" />
-      <File FileName="Assets\Scripts\prendrePowerUp2.cs" Line="42" Column="5" />
-      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="39" Column="18" />
+      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="132" Column="23" />
+      <File FileName="Assets\Scripts\prendrePowerUp2.cs" Line="51" Column="37" />
+      <File FileName="Assets\Scripts\prendrePowerUp.cs" Line="50" Column="36" />
+      <File FileName="Assets\Scripts\PlayerMovement2.cs" Line="134" Column="3" />
+      <File FileName="Assets\Scripts\stunt1.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

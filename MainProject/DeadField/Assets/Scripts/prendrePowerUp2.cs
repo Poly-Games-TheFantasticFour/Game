@@ -3,18 +3,16 @@ using System.Collections;
 
 
 public class prendrePowerUp2 : MonoBehaviour {
+	
+	public static bool estGros = false;
+	public float tempsActivation = 10.0f;
 
-	float getspeed = PlayerMovement2.speed; 					//accede au variable dun autre script(PlayerMovement)
-	float getattactForce = PlayerMovement2.attactForce;		//http://answers.unity3d.com/questions/400977/changing-a-variable-in-one-script-using-another-sc.html
-	float gettimeBetweenAttacks = PlayerMovement2.timeBetweenAttacks;
 	int quelPowerUp;
 	int actif = -1;
 	int nPowerup = 3;
-	public static bool estGros = false;
 	bool estPetit = false;
 	bool estGlow = false;
 
-	public float tempsActivation = 10.0f;
 	Component halo;
 	
 	void Start()
@@ -44,12 +42,13 @@ public class prendrePowerUp2 : MonoBehaviour {
 	}
 
 	IEnumerator grossir(){
+		PlayerMovement2.attaque = false;
 		estGros = true;
 		estPetit = estGlow  = false;
 
 		transform.localScale = new Vector3 (3F, 3F, 3F); 
 		transform.rigidbody.mass = 9.5F; 
-		PlayerMovement2.speed = 6.0F;
+		PlayerMovement2.speed = 6.0F;					//http://answers.unity3d.com/questions/400977/changing-a-variable-in-one-script-using-another-sc.html
 		PlayerMovement2.attactForce = 100.0F;
 		PlayerMovement2.timeBetweenAttacks = 0.88f;
 

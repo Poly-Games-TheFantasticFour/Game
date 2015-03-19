@@ -131,11 +131,6 @@ public class PlayerMovement : MonoBehaviour
 			playerSound.clip = attackClip;
 		playerSound.Play ();
 	}
-				
-	/*void OnCollisionEnter()
-	{
-		isGrounded = true;
-	}*/
 
 	// ************************Old rotate (via wasd)*************************
 	/*void Rotate (float horizontal, float vertical)
