@@ -7,11 +7,14 @@ public class prendrePowerUp2 : MonoBehaviour {
 	float getspeed = PlayerMovement2.speed; 					//accede au variable dun autre script(PlayerMovement)
 	float getattactForce = PlayerMovement2.attactForce;		//http://answers.unity3d.com/questions/400977/changing-a-variable-in-one-script-using-another-sc.html
 	float gettimeBetweenAttacks = PlayerMovement2.timeBetweenAttacks;
-	float quelPowerUp;
-	float nPowerup = 3.0F;
+	int quelPowerUp;
+	int actif = -1;
+	int nPowerup = 3;
 	public static bool estGros = false;
+	bool estPetit = false;
+	bool estGlow = false;
 
-	float tempsActivation = 0.0f;
+	public float tempsActivation = 10.0f;
 	Component halo;
 	
 	void Start()
@@ -22,38 +25,28 @@ public class prendrePowerUp2 : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "powerUp") {
-			other.gameObject.SetActive(false);
-			tempsActivation = 10.0f;
-			quelPowerUp = Random.Range(0f,nPowerup); // 0 est inclu, nPowerUp est exclus
-			tempsActivation = 10.0f;
-			if (quelPowerUp < 1f ){ // grossit le Player
-				grossir();
+			Destroy (other.gameObject);
+
+			do{
+				quelPowerUp = Random.Range(0,nPowerup); // 0 est inclu, nPowerUp est exclus
+			}while(quelPowerUp == actif);
+
+			switch(quelPowerUp)
+			{
+			case 0: actif = 0; StartCoroutine (grossir());
+				break;
+			case 1: actif = 1; StartCoroutine (petit());
+				break;
+			case 2: actif = 2; StartCoroutine (glow ());
+				break;
 			}
-			if (quelPowerUp >= 1f && quelPowerUp < 2f){ //quelPowerUp >= 1 pour linstant) // rapetisse le Player
-				petit(); 
-			}
-			if (quelPowerUp >= 2f ){
-				glow (); 
-			}
-			StartCoroutine (actif());
 		}
 	}
 
-	IEnumerator actif(){
-	
-		float time = 0;
-		while (time < (tempsActivation * Time.deltaTime)) {
-			time += Time.deltaTime;
-			yield return new WaitForSeconds(1.0F);
-		}
-		if (time >= (tempsActivation * Time.deltaTime)) { // remet les paramettre modifier a leur valeur initiale
-			normal(); 
-
-		}
-
-	}
-	void grossir(){
+	IEnumerator grossir(){
 		estGros = true;
+		estPetit = estGlow  = false;
+
 		transform.localScale = new Vector3 (3F, 3F, 3F); 
 		transform.rigidbody.mass = 9.5F; 
 		PlayerMovement2.speed = 6.0F;
@@ -62,10 +55,16 @@ public class prendrePowerUp2 : MonoBehaviour {
 
 		halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
 		rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+		yield return new WaitForSeconds (tempsActivation);
+		if (estGros)
+			normal ();
 	}
 
-	void petit (){
-		estGros = false;
+	IEnumerator petit (){
+		estPetit = true;
+		estGros = estGlow = false;
+
 		transform.localScale = new Vector3 (0.75F, 0.75F, 0.75F); 
 		transform.rigidbody.mass = 5f; 
 		PlayerMovement2.speed = 10F;
@@ -73,11 +72,17 @@ public class prendrePowerUp2 : MonoBehaviour {
 		PlayerMovement2.attactForce = 50.0f;
 
 		halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
-		rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;;
+		rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+		yield return new WaitForSeconds (tempsActivation);
+		if (estPetit)
+			normal ();
 	}
 
-	void glow(){
-		estGros = false;
+	IEnumerator glow(){
+		estGlow = true;
+		estPetit = estGros = false;
+
 		transform.rigidbody.mass = 6f; 
 		PlayerMovement.speed = 8F;
 		PlayerMovement.attactForce = 75.0f;
@@ -86,11 +91,14 @@ public class prendrePowerUp2 : MonoBehaviour {
 
 		halo.GetType().GetProperty("enabled").SetValue(halo, true, null);
 		rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
+
+		yield return new WaitForSeconds (tempsActivation);
+		if (estGlow)
+			normal ();
 	}
 
 	void normal(){
-		estGros = false;
-		tempsActivation = 0.0f;
+		estGros = estPetit = estGlow = false;
 		transform.localScale = new Vector3 (1.5F, 1.5F, 1.5F); 
 		transform.rigidbody.mass = 6f; 
 		PlayerMovement2.speed = 8F;
