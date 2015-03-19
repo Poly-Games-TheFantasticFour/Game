@@ -16,8 +16,8 @@ public class Spawner : MonoBehaviour {
 	{
 		 {
 			Vector3 spawnPoint = new Vector3 (Random.Range (0F, 35F), 2.0F, Random.Range (0F, 35.0F)); 
-			Instantiate (powerUp, spawnPoint/*endroit*/, transform.rotation);
+			Instantiate (powerUp, spawnPoint/*endroit*/, Quaternion.identity);
 		} 
-
+		//transform.rotation
 	}
 }
