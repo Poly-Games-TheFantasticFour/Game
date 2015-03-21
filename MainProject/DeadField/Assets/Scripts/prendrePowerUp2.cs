@@ -18,6 +18,7 @@ public class prendrePowerUp2 : MonoBehaviour {
 	void Start()
 	{
 		halo = GameObject.Find("mesh").GetComponent("Halo");
+		normal();
 	}
 	
 	void OnTriggerEnter(Collider other)

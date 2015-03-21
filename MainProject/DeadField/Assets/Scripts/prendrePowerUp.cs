@@ -17,6 +17,7 @@ public class prendrePowerUp : MonoBehaviour {
 	void Start()
 	{
 		halo = GameObject.Find("eye").GetComponent("Halo");
+		normal();
 	}
 
 	void OnTriggerEnter(Collider other)
