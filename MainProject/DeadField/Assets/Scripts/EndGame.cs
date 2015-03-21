@@ -15,7 +15,7 @@ public class EndGame : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if (player1 == null && player2 == null)
+		if (player1 == null || player2 == null)
 			Invoke ("Restart", restartTimer);
 	}
 
