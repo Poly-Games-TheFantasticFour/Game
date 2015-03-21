@@ -16,6 +16,7 @@ public class PlayerMovement2 : MonoBehaviour {
 	public AudioClip getHitClip;
 	public AudioClip attackClip;
 	AudioSource playerSound;
+	Vector3 move;
 	
 	//bool isGrounded = true;
 	int floorMask, hitMask, jumpMask;
@@ -96,9 +97,12 @@ public class PlayerMovement2 : MonoBehaviour {
 	
 	void Move (float h, float v)
 	{
-		Vector3 move = new Vector3 (h, 0.0f, v);
-		transform.position += Vector3.ClampMagnitude (move, 1.0f) * speed * Time.deltaTime;
-		
+		//Vector3 move = new Vector3 (h, 0.0f, v);
+		//transform.position += Vector3.ClampMagnitude (move, 1.0f) * speed * Time.deltaTime;
+		//playerRigidbody.MovePosition (playerRigidbody.position + Vector3.ClampMagnitude (move, 1.0f) * speed * Time.deltaTime);
+		move.Set (h, 0f, v);
+		playerRigidbody.MovePosition (transform.position + Vector3.ClampMagnitude (move, 1.0f) * speed * Time.deltaTime);
+
 		bool running = h != 0f || v != 0f;
 		anim.SetBool ("IsRunning", running);
 	}
