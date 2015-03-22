@@ -15,7 +15,7 @@ public class prendrePowerUp2 : MonoBehaviour {
 
 	Component halo;
 	
-	void Start()
+	void Awake()
 	{
 		halo = GameObject.Find("mesh").GetComponent("Halo");
 		normal();
@@ -48,7 +48,7 @@ public class prendrePowerUp2 : MonoBehaviour {
 		estPetit = estGlow  = false;
 
 		transform.localScale = new Vector3 (3F, 3F, 3F); 
-		transform.rigidbody.mass = 9.5F; 
+		transform.rigidbody.mass = 8F; 
 		PlayerMovement2.speed = 6.0F;					//http://answers.unity3d.com/questions/400977/changing-a-variable-in-one-script-using-another-sc.html
 		PlayerMovement2.attactForce = 100.0F;
 		PlayerMovement2.timeBetweenAttacks = 0.88f;
@@ -84,9 +84,9 @@ public class prendrePowerUp2 : MonoBehaviour {
 		estPetit = estGros = false;
 
 		transform.rigidbody.mass = 6f; 
-		PlayerMovement.speed = 8F;
-		PlayerMovement.attactForce = 75.0f;
-		PlayerMovement.timeBetweenAttacks = 0.88f;
+		PlayerMovement2.speed = 8F;
+		PlayerMovement2.attactForce = 75.0f;
+		PlayerMovement2.timeBetweenAttacks = 0.88f;
 		transform.localScale = new Vector3 (1.5F, 1.5F, 1.5F);
 
 		halo.GetType().GetProperty("enabled").SetValue(halo, true, null);

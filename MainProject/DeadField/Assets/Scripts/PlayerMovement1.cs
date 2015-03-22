@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement1 : MonoBehaviour
 {
 	//public float turnSmoothing = 15f;
 	public static float speed = 8.0f; //besoin detre static pour pouvoir sen servir dansun autre script
@@ -12,21 +12,21 @@ public class PlayerMovement : MonoBehaviour
 	public float jumpCheckDist = 1.0f;
 	public static bool attaque = false;
 	public float attackRadius = 0.75f;
-
+	
 	public AudioClip getHitClip;
 	public AudioClip attackClip;
 	AudioSource playerSound;
-
+	Vector3 move;
+	
 	//bool isGrounded = true;
 	int floorMask, hitMask, jumpMask;
 	float camRayLength = 200f;
 	float timer = 0.0f;
-
+	
 	Rigidbody playerRigidbody;
 	Animator anim;
 	RaycastHit shootHit, shootJump;
-	Vector3 move;
-
+	
 	void Awake()
 	{
 		jumpMask = LayerMask.GetMask ("Jump");
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 		playerRigidbody = GetComponent <Rigidbody> ();
 		playerSound = GetComponent <AudioSource> ();
 	}
-
+	
 	void FixedUpdate ()
 	{
 		timer += Time.deltaTime;
@@ -44,27 +44,27 @@ public class PlayerMovement : MonoBehaviour
 		playerRigidbody.AddForce(Physics.gravity * playerRigidbody.mass);
 		float h = Input.GetAxis ("Horizontal");
 		float v = Input.GetAxis ("Vertical");
-
+		
 		if (Input.GetButton("Jump") && IsGrounded()) 
 		{
 			Jump ();
 			//isGrounded = false;
 		}
-
+		
 		Move (h, v);
 		Turning ();
-
+		
 		if (Input.GetButtonDown("Fire1")&& timer >= timeBetweenAttacks && Time.timeScale != 0) 
 		{
 			timer = 0.0f;
 			anim.SetTrigger ("Attack");
 			Invoke("Attack", .5f);
 		}
-
+		
 		/*if (h != 0 || v != 0)
 			Rotate (h, v);*/
 	}
-
+	
 	bool IsGrounded()
 	{
 		Vector3 DirectionRay = transform.TransformDirection(Vector3.down);
@@ -72,14 +72,14 @@ public class PlayerMovement : MonoBehaviour
 		Vector3 left = new Vector3(-0.25f,1.0f,0f);
 		Vector3 front = new Vector3(0.0f,1.0f,0.25f);
 		Vector3 rear = new Vector3(0.25f,1.0f,-0.25f);
-
+		
 		Debug.DrawRay(transform.position + right, DirectionRay * jumpCheckDist, Color.blue);
 		Debug.DrawRay(transform.position + left, DirectionRay * jumpCheckDist, Color.blue);
 		Debug.DrawRay(transform.position + front, DirectionRay * jumpCheckDist, Color.blue);
 		Debug.DrawRay(transform.position + rear, DirectionRay * jumpCheckDist, Color.blue);
-
+		
 		if(Physics.Raycast (transform.position + right, DirectionRay, out shootJump, jumpCheckDist, jumpMask))
-		   return true;
+			return true;
 		if(Physics.Raycast (transform.position + left, DirectionRay, out shootJump, jumpCheckDist, jumpMask))
 			return true;
 		if(Physics.Raycast (transform.position + front, DirectionRay, out shootJump, jumpCheckDist, jumpMask))
@@ -88,12 +88,12 @@ public class PlayerMovement : MonoBehaviour
 			return true;
 		return false;
 	}
-
+	
 	void Jump () 
 	{
 		playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 	}
-
+	
 	void Move (float h, float v)
 	{
 		//Vector3 move = new Vector3 (h, 0.0f, v);
@@ -101,11 +101,11 @@ public class PlayerMovement : MonoBehaviour
 		//playerRigidbody.MovePosition (playerRigidbody.position + Vector3.ClampMagnitude (move, 1.0f) * speed * Time.deltaTime);
 		move.Set (h, 0f, v);
 		playerRigidbody.MovePosition (transform.position + Vector3.ClampMagnitude (move, 1.0f) * speed * Time.deltaTime);
-
+		
 		bool running = h != 0f || v != 0f;
 		anim.SetBool ("IsRunning", running);
 	}
-
+	
 	void Turning()
 	{
 		Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
 			playerRigidbody.MoveRotation(newRotation);
 		}
 	}
-
+	
 	void Attack()
 	{
 		Vector3 DirectionRay = transform.TransformDirection (Vector3.forward);
@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
 			playerSound.clip = attackClip;
 		playerSound.Play ();
 	}
-
+	
 	// ************************Old rotate (via wasd)*************************
 	/*void Rotate (float horizontal, float vertical)
 	{
