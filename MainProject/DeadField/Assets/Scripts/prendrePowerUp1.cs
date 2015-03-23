@@ -18,7 +18,7 @@ public class prendrePowerUp1 : MonoBehaviour {
 	void Awake()
 	{
 		halo = GameObject.Find("eye").GetComponent("Halo");
-		normal();
+		//normal();
 	}
 	
 	void OnTriggerEnter(Collider other)
@@ -47,7 +47,7 @@ public class prendrePowerUp1 : MonoBehaviour {
 		estGros = true;
 		estPetit = estGlow  = false;
 		
-		//transform.localScale = new Vector3 (10.0F, 10.0F, 10.0F); 
+		transform.localScale = new Vector3 (10.0F, 10.0F, 10.0F); 
 		transform.rigidbody.mass = 8F; 
 		PlayerMovement1.speed = 6.0F;					//http://answers.unity3d.com/questions/400977/changing-a-variable-in-one-script-using-another-sc.html
 		PlayerMovement1.attactForce = 100.0F;

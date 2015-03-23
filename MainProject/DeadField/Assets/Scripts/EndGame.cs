@@ -8,7 +8,7 @@ public class EndGame : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player1 = GameObject.Find("Zombie");
+		player1 = GameObject.Find("ToonZombie");
 		player2 = GameObject.Find ("Monster");
 	}
 	

@@ -9,7 +9,6 @@ public class PlayerMovement2 : MonoBehaviour {
 	public static float attactForce = 75.0f;
 	public static float timeBetweenAttacks = 0.88f;
 	public float attactRange = 2.0f;
-	public float jumpCheckDist = 1.0f;
 	public static bool attaque = false;
 	public float attackRadius = 0.75f;
 
@@ -17,19 +16,18 @@ public class PlayerMovement2 : MonoBehaviour {
 	public AudioClip attackClip;
 	AudioSource playerSound;
 	Vector3 move;
-	
-	//bool isGrounded = true;
-	int floorMask, hitMask, jumpMask;
+
+	int floorMask, hitMask;
 	//float camRayLength = 200f;
 	float timer = 0.0f;
+	bool isGrounded = true;
 	
 	Rigidbody playerRigidbody;
 	Animator anim;
-	RaycastHit shootHit, shootJump;
+	RaycastHit shootHit;
 	
 	void Awake()
 	{
-		jumpMask = LayerMask.GetMask ("Jump");
 		floorMask = LayerMask.GetMask ("Floor");
 		hitMask = LayerMask.GetMask ("Melee");
 		anim = GetComponent <Animator> ();
@@ -45,10 +43,10 @@ public class PlayerMovement2 : MonoBehaviour {
 		float h = Input.GetAxis ("Horizontal2");
 		float v = Input.GetAxis ("Vertical2");
 		
-		if (Input.GetKey(KeyCode.Keypad0) && IsGrounded()) 
+		if (Input.GetKey(KeyCode.Keypad0) && isGrounded) 
 		{
 			Jump ();
-			//isGrounded = false;
+			isGrounded = false;
 		}
 		
 		Move (h, v);
@@ -65,34 +63,18 @@ public class PlayerMovement2 : MonoBehaviour {
 			Rotate (h, v);
 	}
 	
-	bool IsGrounded()
-	{
-		Vector3 DirectionRay = transform.TransformDirection(Vector3.down);
-		Vector3 right = new Vector3(0.25f,1.0f,0.0f);
-		Vector3 left = new Vector3(-0.25f,1.0f,0f);
-		Vector3 front = new Vector3(0.0f,1.0f,0.25f);
-		Vector3 rear = new Vector3(0.25f,1.0f,-0.25f);
-		
-		Debug.DrawRay(transform.position + right, DirectionRay * jumpCheckDist, Color.blue);
-		Debug.DrawRay(transform.position + left, DirectionRay * jumpCheckDist, Color.blue);
-		Debug.DrawRay(transform.position + front, DirectionRay * jumpCheckDist, Color.blue);
-		Debug.DrawRay(transform.position + rear, DirectionRay * jumpCheckDist, Color.blue);
-		
-		if(Physics.Raycast (transform.position + right, DirectionRay, out shootJump, jumpCheckDist, jumpMask))
-			return true;
-		if(Physics.Raycast (transform.position + left, DirectionRay, out shootJump, jumpCheckDist, jumpMask))
-			return true;
-		if(Physics.Raycast (transform.position + front, DirectionRay, out shootJump, jumpCheckDist, jumpMask))
-			return true;
-		if(Physics.Raycast (transform.position + rear, DirectionRay, out shootJump, jumpCheckDist, jumpMask))
-			return true;
-		return false;
-	}
-	
-	void Jump () 
+	void Jump()
 	{
 		anim.SetTrigger ("Jump");
 		playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+		isGrounded = false;
+	}
+	
+	void OnTriggerEnter (Collider other)
+	{
+		if (other.gameObject.layer == LayerMask.NameToLayer("Jump")) {
+			isGrounded = true;
+		}
 	}
 	
 	void Move (float h, float v)
