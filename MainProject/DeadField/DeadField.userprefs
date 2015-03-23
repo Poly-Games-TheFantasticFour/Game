@@ -1,10 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\prendrePowerUp1.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerMovement1.cs">
     <Files>
-      <File FileName="Assets\Scripts\prendrePowerUp1.cs" Line="112" Column="3" />
-      <File FileName="Assets\Scripts\PlayerMovement2.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerMovement1.cs" Line="30" Column="3" />
+      <File FileName="Assets\Scripts\PlayerMovement1.cs" Line="127" Column="21" />
+      <File FileName="Assets\Scripts\prendrePowerUp1.cs" Line="26" Column="32" />
+      <File FileName="Assets\Scripts\PlayerMovement2.cs" Line="140" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

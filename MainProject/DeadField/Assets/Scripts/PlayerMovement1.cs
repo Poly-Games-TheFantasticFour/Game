@@ -18,18 +18,18 @@ public class PlayerMovement1 : MonoBehaviour
 	Vector3 move;
 	
 	bool isGrounded = true;
-	int floorMask, hitMask;
+	bool isInRange = false;
+	int floorMask;
 	float camRayLength = 200f;
 	float timer = 0.0f;
 	
 	Rigidbody playerRigidbody;
 	Animator anim;
-	RaycastHit shootHit;
+	Collider ennemy;
 	
 	void Awake()
 	{
 		floorMask = LayerMask.GetMask ("Floor");
-		hitMask = LayerMask.GetMask ("Melee");
 		anim = GetComponent <Animator> ();
 		playerRigidbody = GetComponent <Rigidbody> ();
 		playerSound = GetComponent <AudioSource> ();
@@ -68,18 +68,8 @@ public class PlayerMovement1 : MonoBehaviour
 		isGrounded = false;
 	}
 
-	void OnTriggerEnter (Collider other)
-	{
-		if (other.gameObject.layer == LayerMask.NameToLayer("Jump")) {
-			isGrounded = true;
-		}
-	}
-	
 	void Move (float h, float v)
 	{
-		//Vector3 move = new Vector3 (h, 0.0f, v);
-		//transform.position += Vector3.ClampMagnitude (move, 1.0f) * speed * Time.deltaTime;
-		//playerRigidbody.MovePosition (playerRigidbody.position + Vector3.ClampMagnitude (move, 1.0f) * speed * Time.deltaTime);
 		move.Set (h, 0f, v);
 		playerRigidbody.MovePosition (transform.position + Vector3.ClampMagnitude (move, 1.0f) * speed * Time.deltaTime);
 		
@@ -100,21 +90,42 @@ public class PlayerMovement1 : MonoBehaviour
 			playerRigidbody.MoveRotation(newRotation);
 		}
 	}
-	
+
 	void Attack()
 	{
-		Vector3 DirectionRay = transform.TransformDirection (Vector3.forward);
-		Debug.DrawRay (transform.position + transform.up, DirectionRay * attactRange, Color.blue);
-		
-		if (Physics.SphereCast (transform.position + transform.up, attackRadius, DirectionRay, out shootHit, attactRange, hitMask) || Physics.Raycast (transform.position + transform.up, DirectionRay, out shootHit, attactRange, hitMask)) 
-		{
-			shootHit.rigidbody.AddForce (DirectionRay.normalized * attactForce, ForceMode.Impulse); 
+		Vector3 DirectionRay = transform.TransformDirection (Vector3.forward);						//Vecteur en direction de l'endroit ou regarde le joueur.
+
+		if (isInRange) {
+			ennemy.rigidbody.AddForce (DirectionRay.normalized * attactForce, ForceMode.Impulse);
 			playerSound.clip = getHitClip;
 			attaque = true;
+			isInRange = false;
 		}
 		else
 			playerSound.clip = attackClip;
 		playerSound.Play ();
+	}
+
+	//************************Trigger Related functions*************************
+	void OnTriggerEnter (Collider other)
+	{
+		if (other.gameObject.layer == LayerMask.NameToLayer("Jump")) {
+			isGrounded = true;
+		}
+	}
+	
+	void OnTriggerStay (Collider other)
+	{
+		if (other.gameObject.layer == LayerMask.NameToLayer("Player2")) {
+			ennemy = other;
+			isInRange = true;
+		}
+	}
+	void OnTriggerExit (Collider other)
+	{
+		if (other.gameObject.layer == LayerMask.NameToLayer("Player2")) {
+			isInRange = false;
+		}
 	}
 	
 	// ************************Old rotate (via wasd)*************************
