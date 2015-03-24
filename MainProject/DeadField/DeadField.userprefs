@@ -1,10 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerMovement1.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EndGame.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerMovement1.cs" Line="127" Column="21" />
-      <File FileName="Assets\Scripts\prendrePowerUp1.cs" Line="26" Column="32" />
-      <File FileName="Assets\Scripts\PlayerMovement2.cs" Line="140" Column="21" />
+      <File FileName="Assets\Scripts\EndGame.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

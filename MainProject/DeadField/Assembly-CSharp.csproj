@@ -52,6 +52,8 @@
      <Compile Include="Assets\Scripts\PlaySound.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement1.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement2.cs" />
+     <Compile Include="Assets\Scripts\ScoreManager1.cs" />
+     <Compile Include="Assets\Scripts\ScoreManager2.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\prendrePowerUp1.cs" />
      <Compile Include="Assets\Scripts\prendrePowerUp2.cs" />
