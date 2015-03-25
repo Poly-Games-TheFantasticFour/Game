@@ -27,7 +27,7 @@ public class EndGame : MonoBehaviour {
 
 	void Restart()
 	{
-		Application.LoadLevel("Arena_Cage");
+		Application.LoadLevel(0);
 	}
 
 	void Score()
