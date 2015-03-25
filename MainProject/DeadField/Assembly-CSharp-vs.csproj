@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>D:/Programs Files D/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>D:/Programs Files D/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -73,7 +73,11 @@
      <None Include="Assets\Arts\Models\Monster2\Shaders\bumpspecmap.shader" />
      <None Include="Assets\Arts\Models\Monster2\Shaders\monsterShader.shader" />
  <Reference Include="UnityEngine.UI">
+<<<<<<< HEAD
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
+=======
+ <HintPath>D:/Programs Files D/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
+>>>>>>> 60c6175320ded7601429c80d05115812be3c1118
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
