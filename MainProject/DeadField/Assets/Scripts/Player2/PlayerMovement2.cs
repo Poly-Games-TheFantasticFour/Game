@@ -9,7 +9,7 @@ public class PlayerMovement2 : MonoBehaviour {
 	
 	Vector3 move;
 	bool isGrounded = true;
-	int floorMask;
+	//int floorMask;
 	//float camRayLength = 200f;
 	
 	Rigidbody playerRigidbody;
@@ -17,7 +17,7 @@ public class PlayerMovement2 : MonoBehaviour {
 	
 	void Awake()
 	{
-		floorMask = LayerMask.GetMask ("Floor");
+		//floorMask = LayerMask.GetMask ("Floor");
 		anim = GetComponent <Animator> ();
 		playerRigidbody = GetComponent <Rigidbody> ();
 	}

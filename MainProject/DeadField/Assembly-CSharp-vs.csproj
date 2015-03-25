@@ -49,6 +49,10 @@
      <Compile Include="Assets\Scripts\DeathZone.cs" />
      <Compile Include="Assets\Scripts\EndGame.cs" />
      <Compile Include="Assets\Scripts\FallingPlateform.cs" />
+     <Compile Include="Assets\Scripts\InfiniteRandomRun\Creator.cs" />
+     <Compile Include="Assets\Scripts\InfiniteRandomRun\MoveCamera.cs" />
+     <Compile Include="Assets\Scripts\InfiniteRandomRun\PowerUpCreator.cs" />
+     <Compile Include="Assets\Scripts\InfiniteRandomRun\Remover.cs" />
      <Compile Include="Assets\Scripts\PlaySound.cs" />
      <Compile Include="Assets\Scripts\Player1\Attack1.cs" />
      <Compile Include="Assets\Scripts\Player1\PlayerMovement1.cs" />

@@ -3,21 +3,21 @@ using System.Collections;
 
 public class PlayerMovement1 : MonoBehaviour
 {
-	//public float turnSmoothing = 15f;
+	public float turnSmoothing = 15f;
 	public static float speed = 8.0f; //besoin detre static pour pouvoir sen servir dansun autre script
 	public float jumpForce = 50.0f;
 
 	Vector3 move;
 	bool isGrounded = true;
-	int floorMask;
-	float camRayLength = 200f;
+	//int floorMask;
+	//float camRayLength = 200f;
 	
 	Rigidbody playerRigidbody;
 	Animator anim;
 	
 	void Awake()
 	{
-		floorMask = LayerMask.GetMask ("Floor");
+		//floorMask = LayerMask.GetMask ("Floor");
 		anim = GetComponent <Animator> ();
 		playerRigidbody = GetComponent <Rigidbody> ();
 	}
@@ -34,7 +34,10 @@ public class PlayerMovement1 : MonoBehaviour
 		}
 		
 		Move (h, v);
-		Turning ();
+		//Turning ();
+
+		if (h != 0 || v != 0)
+			Rotate (h, v);
 	}
 
 	void Jump()
@@ -52,7 +55,7 @@ public class PlayerMovement1 : MonoBehaviour
 		anim.SetBool ("IsRunning", running);
 	}
 	
-	void Turning()
+	/*void Turning()
 	{
 		Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit floorHit;
@@ -64,7 +67,7 @@ public class PlayerMovement1 : MonoBehaviour
 			Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
 			playerRigidbody.MoveRotation(newRotation);
 		}
-	}
+	}*/
 	
 	//************************Trigger Related functions*************************
 	void OnTriggerEnter (Collider other)
@@ -75,7 +78,7 @@ public class PlayerMovement1 : MonoBehaviour
 	}
 
 	// ************************Old rotate (via wasd)*************************
-	/*void Rotate (float horizontal, float vertical)
+	void Rotate (float horizontal, float vertical)
 	{
 		Vector3 targetDirection = new Vector3(horizontal, 0f, vertical);
 
@@ -83,5 +86,5 @@ public class PlayerMovement1 : MonoBehaviour
 		Quaternion newRotation = Quaternion.Lerp(rigidbody.rotation, targetRotation, turnSmoothing * Time.deltaTime);
 
 		rigidbody.MoveRotation(newRotation);
-	}*/
+	}
 }
