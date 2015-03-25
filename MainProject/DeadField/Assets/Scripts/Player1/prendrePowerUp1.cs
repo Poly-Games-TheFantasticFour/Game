@@ -10,8 +10,8 @@ public class prendrePowerUp1 : MonoBehaviour {
 	int quelPowerUp;
 	int actif = -1;
 	int nPowerup = 3;
-	bool estPetit = false;
-	bool estGlow = false;
+	public static bool estPetit = false;
+	public static bool estGlow = false;
 	
 	Component halo;
 	
