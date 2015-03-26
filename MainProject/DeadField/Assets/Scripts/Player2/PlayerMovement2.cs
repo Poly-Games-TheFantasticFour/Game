@@ -6,6 +6,7 @@ public class PlayerMovement2 : MonoBehaviour {
 	public float turnSmoothing = 15f;
 	public static float speed = 8.0f; //besoin detre static pour pouvoir sen servir dansun autre script
 	public float jumpForce = 50.0f;
+	public float gravity = 1.75f;
 	
 	Vector3 move;
 	bool isGrounded = true;
@@ -24,11 +25,11 @@ public class PlayerMovement2 : MonoBehaviour {
 	
 	void FixedUpdate ()
 	{
-		playerRigidbody.AddForce(Physics.gravity * playerRigidbody.mass);
-		float h = Input.GetAxis ("Horizontal2");
-		float v = Input.GetAxis ("Vertical2");
+		playerRigidbody.AddForce(Physics.gravity * playerRigidbody.mass * gravity);
+		float h = Input.GetAxis ("HorizontalP2");
+		float v = Input.GetAxis ("VerticalP2");
 		
-		if (Input.GetKey(KeyCode.Keypad0) && isGrounded) 
+		if (Input.GetButton("JumpP2") && isGrounded) 
 		{
 			Jump ();
 		}
@@ -43,7 +44,8 @@ public class PlayerMovement2 : MonoBehaviour {
 	void Jump()
 	{
 		anim.SetTrigger ("Jump");
-		playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+		playerRigidbody.velocity = new Vector3 (0, jumpForce, 0);
+		//playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 		isGrounded = false;
 	}
 	
