@@ -22,12 +22,20 @@ public class PlayerMovement2 : MonoBehaviour {
 		anim = GetComponent <Animator> ();
 		playerRigidbody = GetComponent <Rigidbody> ();
 	}
-	
+
+	char NbController ()
+	{
+		if (Input.GetJoystickNames ().Length <= 1)
+			return 'K';
+		else
+			return 'C';
+	}
+
 	void FixedUpdate ()
 	{
 		playerRigidbody.AddForce(Physics.gravity * playerRigidbody.mass * gravity);
-		float h = Input.GetAxis ("HorizontalP2");
-		float v = Input.GetAxis ("VerticalP2");
+		float h = Input.GetAxis ("HorizontalP2" + NbController());
+		float v = Input.GetAxis ("VerticalP2" + NbController());
 		
 		if (Input.GetButton("JumpP2") && isGrounded) 
 		{
