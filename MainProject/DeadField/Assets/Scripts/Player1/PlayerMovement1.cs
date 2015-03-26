@@ -7,6 +7,7 @@ public class PlayerMovement1 : MonoBehaviour
 	public static float speed = 8.0f; //besoin detre static pour pouvoir sen servir dansun autre script
 	public float jumpForce = 50.0f;
 	public float gravity = 1.75f;
+	public int nbController;
 
 	Vector3 move;
 	bool isGrounded = true;
@@ -18,16 +19,24 @@ public class PlayerMovement1 : MonoBehaviour
 	
 	void Awake()
 	{
+		NbController ();
 		//floorMask = LayerMask.GetMask ("Floor");
 		anim = GetComponent <Animator> ();
 		playerRigidbody = GetComponent <Rigidbody> ();
 	}
-	
+	char NbController ()
+	{
+		if (Input.GetJoystickNames ().Length == 0)
+			return 'K';
+		else
+			return 'C';
+	}
+
 	void FixedUpdate ()
 	{
 		playerRigidbody.AddForce(Physics.gravity * playerRigidbody.mass * gravity);
-		float h = Input.GetAxis ("HorizontalP1");
-		float v = Input.GetAxis ("VerticalP1");
+		float h = Input.GetAxis ("HorizontalP1" + NbController());
+		float v = Input.GetAxis ("VerticalP1" + NbController());
 		
 		if (Input.GetButton("JumpP1") && isGrounded) 
 		{
