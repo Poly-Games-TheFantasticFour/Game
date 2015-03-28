@@ -5,8 +5,6 @@ Project("{F14F6555-C7C1-5246-B1D8-E9B25AF28B8D}") = "DeadField", "Assembly-CShar
 EndProject
 Project("{F14F6555-C7C1-5246-B1D8-E9B25AF28B8D}") = "DeadField", "Assembly-CSharp.csproj", "{B4DF4141-9F16-04C8-8A02-F5650EDD03A1}"
 EndProject
-Project("{F14F6555-C7C1-5246-B1D8-E9B25AF28B8D}") = "DeadField", "Assembly-UnityScript-firstpass.unityproj", "{949454CC-B222-BECE-175E-5B03D90917F2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,15 +19,11 @@ Global
 		{B4DF4141-9F16-04C8-8A02-F5650EDD03A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4DF4141-9F16-04C8-8A02-F5650EDD03A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4DF4141-9F16-04C8-8A02-F5650EDD03A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{949454CC-B222-BECE-175E-5B03D90917F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{949454CC-B222-BECE-175E-5B03D90917F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{949454CC-B222-BECE-175E-5B03D90917F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{949454CC-B222-BECE-175E-5B03D90917F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																																																																																										GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																																																																																																																							GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

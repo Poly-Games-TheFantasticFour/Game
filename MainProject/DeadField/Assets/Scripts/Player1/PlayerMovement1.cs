@@ -5,7 +5,7 @@ public class PlayerMovement1 : MonoBehaviour
 {
 	public float turnSmoothing = 15f;
 	public static float speed = 8.0f; //besoin detre static pour pouvoir sen servir dansun autre script
-	public float jumpForce = 50.0f;
+	public float jumpForce = 10.0f;
 	public float gravity = 1.75f;
 
 	Vector3 move;

@@ -4,7 +4,7 @@ using System.Collections;
 public class EndGame : MonoBehaviour {
 
 	public float restartTimer = 2.0f;
-	GameObject player1, player2;
+	GameObject player1, player2, player3;
 
 	bool isAliveP1 = true;
 	bool isAliveP2 = true;
@@ -13,6 +13,7 @@ public class EndGame : MonoBehaviour {
 	void Start () {
 		player1 = GameObject.Find("ToonZombie");
 		player2 = GameObject.Find ("Monster");
+		player3 = GameObject.Find ("AncientKnight");
 		animP1 = GameObject.Find("ToonZombieImage").GetComponent<Animator>();
 		animP2 = GameObject.Find("MonsterImage").GetComponent<Animator>();
 	}
@@ -21,7 +22,7 @@ public class EndGame : MonoBehaviour {
 	{
 		Score ();
 
-		if (player1 == null && player2 == null)
+		if (player1 == null && player2 == null && player3 == null)
 			Invoke ("Restart", restartTimer);
 	}
 
