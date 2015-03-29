@@ -92,10 +92,15 @@ public class PlayerMovement2 : MonoBehaviour {
 	}
 
 	//************************Trigger Related functions*************************
-	void OnTriggerEnter (Collider other)
+	void OnTriggerStay (Collider other)
 	{
 		if (other.gameObject.layer == LayerMask.NameToLayer("Jump")) {
 			isGrounded = true;
 		}
+	}
+	
+	void OnTriggerExit (Collider other)
+	{
+		isGrounded = false;
 	}
 }
