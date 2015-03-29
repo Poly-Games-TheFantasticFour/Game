@@ -1,13 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player2\PlayerMovement2.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MenuScripts/GUImanager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player1\PlayerMovement1.cs" Line="93" Column="3" />
-      <File FileName="Assets\Scripts\Player3\PlayerMovement3.cs" Line="93" Column="3" />
-      <File FileName="Assets\Scripts\Player3\prendrePowerUp3.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player3\Attack3.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\InfiniteRandomRun\Creator.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player2\PlayerMovement2.cs" Line="101" Column="2" />
+      <File FileName="Assets/Scripts/MenuScripts/GUImanager.cs" Line="40" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
