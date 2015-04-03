@@ -70,7 +70,7 @@ public class prendrePowerUp3 : MonoBehaviour {
 		transform.rigidbody.mass = 5f; 
 		PlayerMovement3.speed = 10F;
 		Attack3.timeBetweenAttacks = 0.40F;
-		Attack3.attactForce = 50.0f;
+		Attack3.attactForce = 75.0f;
 		
 		halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
 		rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
@@ -86,7 +86,7 @@ public class prendrePowerUp3 : MonoBehaviour {
 		
 		transform.rigidbody.mass = 6f; 
 		PlayerMovement3.speed = 8F;
-		Attack3.attactForce = 75.0f;
+		Attack3.attactForce = 100.0f;
 		Attack3.timeBetweenAttacks = 0.88f;
 		transform.localScale = new Vector3 (1.75F, 1.75F, 1.75F);
 		
@@ -103,7 +103,7 @@ public class prendrePowerUp3 : MonoBehaviour {
 		transform.localScale = new Vector3 (1.75F, 1.75F, 1.75F); 
 		transform.rigidbody.mass = 6f; 
 		PlayerMovement3.speed = 8F;
-		Attack3.attactForce = 75.0f;
+		Attack3.attactForce = 100.0f;
 		Attack3.timeBetweenAttacks = 0.88f;
 		
 		halo.GetType().GetProperty("enabled").SetValue(halo, false, null);

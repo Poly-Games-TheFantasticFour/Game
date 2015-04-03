@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Attack2 : MonoBehaviour {
 	
-	public static float attactForce = 75.0f;
+	public static float attactForce = 100.0f;
 	public static float timeBetweenAttacks = 0.88f;
 	public static bool attaque = false;
 	

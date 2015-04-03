@@ -4,6 +4,7 @@ using System.Collections;
 public class FallingPlateform : MonoBehaviour {
 
 	public float timeBetweenNumber = 1.0f;
+	public float timeInWhite = 0.5f;
 	public int numberPoolSize = 25;
 	int keyNumber = 7;
 	int number = 0;
@@ -23,7 +24,7 @@ public class FallingPlateform : MonoBehaviour {
 		}
 		gameObject.renderer.material.color = Color.white;
 
-		yield return new WaitForSeconds (timeBetweenNumber);
+		yield return new WaitForSeconds (timeInWhite);
 		rigidbody.useGravity = true;
 		rigidbody.isKinematic = false;
 	}
