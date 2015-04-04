@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\Player2\stunt2.cs" />
      <Compile Include="Assets\Scripts\Player3\Attack3.cs" />
      <Compile Include="Assets\Scripts\Player3\PlayerMovement3.cs" />
+     <Compile Include="Assets\Scripts\Player3\Stunt3.cs" />
      <Compile Include="Assets\Scripts\Player3\prendrePowerUp3.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\rotationPower.cs" />

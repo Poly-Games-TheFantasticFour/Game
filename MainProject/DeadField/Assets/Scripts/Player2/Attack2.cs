@@ -27,7 +27,7 @@ public class Attack2 : MonoBehaviour {
 	{
 		timer += Time.deltaTime;
 		
-		if (Input.GetButtonDown("AttackP2") && timer >= timeBetweenAttacks && Time.timeScale != 0) 
+		if (!stunt2.estStrunt2 && Input.GetButtonDown("AttackP2") && timer >= timeBetweenAttacks && Time.timeScale != 0) 
 		{
 			timer = 0.0f;
 			anim.SetTrigger ("Attack");

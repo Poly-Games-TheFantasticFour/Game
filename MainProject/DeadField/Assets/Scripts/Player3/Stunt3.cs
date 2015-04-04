@@ -1,22 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class stunt1 : MonoBehaviour {
-
-	public static bool estStrunt1 = false;
+public class Stunt3 : MonoBehaviour {
+	
+	public static bool estStrunt3 = false;
 	Animator anim; //ici
-
+	
 	void OnTriggerStay (Collider other)
 	{
-		if ((Attack2.attaque == true && prendrePowerUp2.estGros == true && other.gameObject.layer == LayerMask.NameToLayer("Player2"))|| 
-		    (Attack3.attaque == true && prendrePowerUp3.estGros == true && other.gameObject.layer == LayerMask.NameToLayer("Player3"))/*|| //permettre le joureur 4 de stunt le joueur1
+		if ((Attack1.attaque == true && prendrePowerUp1.estGros == true && other.gameObject.layer == LayerMask.NameToLayer("Player1"))|| 
+		    (Attack2.attaque == true && prendrePowerUp2.estGros == true && other.gameObject.layer == LayerMask.NameToLayer("Player2"))/*|| //permettre le joureur 4 de stunt le joueur1
 		    (Attack4.attaque == true && prendrePowerUp4.estGros == true && other.gameObject.layer == LayerMask.NameToLayer("Player4"))*/)
 			StartCoroutine (stunted ());
-	
+		
 	}
-
+	
 	IEnumerator stunted(){
-		estStrunt1 = true;
+		estStrunt3 = true;
 		anim = GetComponent <Animator> (); //ici
 		bool running = false;
 		anim.SetBool ("IsRunning", running); // ici

@@ -3,15 +3,20 @@ using System.Collections;
 
 public class stunt2 : MonoBehaviour {
 
+	public static bool estStrunt2 = false;
 	Animator anim;
 
-	void Update () 
+	void OnTriggerStay (Collider other)
 	{
-		if (Attack1.attaque== true && prendrePowerUp1.estGros == true) 
+		if ((Attack1.attaque == true && prendrePowerUp1.estGros == true && other.gameObject.layer == LayerMask.NameToLayer("Player1"))|| 
+		    (Attack3.attaque == true && prendrePowerUp3.estGros == true && other.gameObject.layer == LayerMask.NameToLayer("Player3"))/*|| //permettre le joureur 4 de stunt le joueur1
+		    (Attack4.attaque == true && prendrePowerUp4.estGros == true && other.gameObject.layer == LayerMask.NameToLayer("Player4"))*/)
 			StartCoroutine (stunted ());
+		
 	}
 
 	IEnumerator stunted(){
+		estStrunt2 = true;
 		anim = GetComponent <Animator> ();
 		bool running = false;
 		anim.SetBool ("IsRunning", running);
