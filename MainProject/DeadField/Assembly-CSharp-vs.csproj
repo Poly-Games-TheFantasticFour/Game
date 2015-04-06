@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Arts\Models\PrimitivePlus\Scripts\PrimitivePlusEditor.cs" />
+     <Compile Include="Assets\Prefabs\choix2joueur.cs" />
+     <Compile Include="Assets\Prefabs\choix3joueur.cs" />
      <Compile Include="Assets\Scripts\DeathZone.cs" />
      <Compile Include="Assets\Scripts\EndGame.cs" />
      <Compile Include="Assets\Scripts\FallingPlateform.cs" />
