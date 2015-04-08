@@ -47,8 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Arts\Models\PrimitivePlus\Scripts\PrimitivePlusEditor.cs" />
-     <Compile Include="Assets\Prefabs\choix2joueur.cs" />
-     <Compile Include="Assets\Prefabs\choix3joueur.cs" />
      <Compile Include="Assets\Scripts\DeathZone.cs" />
      <Compile Include="Assets\Scripts\EndGame.cs" />
      <Compile Include="Assets\Scripts\FallingPlateform.cs" />
@@ -74,6 +72,8 @@
      <Compile Include="Assets\Scripts\Player3\Stunt3.cs" />
      <Compile Include="Assets\Scripts\Player3\prendrePowerUp3.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
+     <Compile Include="Assets\Scripts\choix2joueur.cs" />
+     <Compile Include="Assets\Scripts\choix3joueur.cs" />
      <Compile Include="Assets\Scripts\rotationPower.cs" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
