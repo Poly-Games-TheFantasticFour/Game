@@ -1,11 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\choix2joueur.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player2\stunt2.cs">
     <Files>
-      <File FileName="Assets\choix3joueur.cs" Line="6" Column="1" />
-      <File FileName="Assets\Scripts\DeathZone.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player1\PlayerMovement1.cs" Line="1" Column="1" />
-      <File FileName="Assets\choix2joueur.cs" Line="9" Column="25" />
+      <File FileName="Assets\Scripts\Player2\stunt2.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player1\stunt1.cs" Line="16" Column="37" />
+      <File FileName="Assets\Scripts\Player3\Stunt3.cs" Line="41" Column="57" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

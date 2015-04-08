@@ -4,49 +4,37 @@ using System.Collections;
 public class GUImanager : MonoBehaviour {
 	
 	public GameObject loadingImage;
-	public Animator startButton;
-	public Animator settingsButton;
-	public Animator deathCageButton;
-	public Animator exitButton;
+	public Animator mainButtons;
+	public Animator levelSelector;
 	public Animator returnButton;
 	public Animator nombreDeJoueur;
-	public Animator joueur_4; 
-	public Animator joueur_3; 
-	public Animator joueur_2; 
 	public static int njoueur;
+
+	void Awake()
+	{
+		mainButtons.SetBool ("IsOnScreen", true);
+	}
 
 	public void OpenSettings()
 
 	{
-		startButton.SetBool("isHidden", true);
-		settingsButton.SetBool("isHidden",true);
-		exitButton.SetBool("isHidden",true);
-		returnButton.SetBool ("isHidden", true);
+		mainButtons.SetBool ("IsOnScreen", false);
+		returnButton.SetBool ("IsOnScreen", true);
 		audio.Play ();
-
-
 	}
 
 	public void openGameSelection()
 
 	{
-		nombreDeJoueur.SetBool("isHidden", false);
-		startButton.SetBool("isHidden", true);
-		settingsButton.SetBool("isHidden",true);
-		exitButton.SetBool("isHidden",true);
-		deathCageButton.SetBool ("isHidden", true);
-		returnButton.SetBool ("isHidden", true);
+		nombreDeJoueur.SetBool("IsOnScreen", false);
+		levelSelector.SetBool("IsOnScreen", true);
 		audio.Play ();
-
-
 	}
 
 	public void nJoueur(){
-		nombreDeJoueur.SetBool("isHidden", true);
-		startButton.SetBool("isHidden", true);
-		settingsButton.SetBool("isHidden",true);
-		exitButton.SetBool("isHidden",true);
-		returnButton.SetBool ("isHidden", true);
+		nombreDeJoueur.SetBool("IsOnScreen", true);
+		mainButtons.SetBool ("IsOnScreen", false);
+		returnButton.SetBool ("IsOnScreen", true);
 		audio.Play ();
 	}
 
@@ -66,16 +54,13 @@ public class GUImanager : MonoBehaviour {
 
 	public void returnSelection() { 
 	
-		nombreDeJoueur.SetBool("isHidden", false);
-		startButton.SetBool("isHidden", false);
-		settingsButton.SetBool("isHidden",false);
-		exitButton.SetBool("isHidden",false);
-		deathCageButton.SetBool ("isHidden", false);
-		returnButton.SetBool ("isHidden", false);
-	
+		nombreDeJoueur.SetBool("IsOnScreen", false);
+		mainButtons.SetBool ("IsOnScreen", true);
+		levelSelector.SetBool("IsOnScreen", false);
+		returnButton.SetBool ("IsOnScreen", false);
 	}
 
-	public void LoadScene(int level)
+	public void LoadScene(string level)
 	{
 		loadingImage.SetActive(true);
 		Application.LoadLevel(level);
