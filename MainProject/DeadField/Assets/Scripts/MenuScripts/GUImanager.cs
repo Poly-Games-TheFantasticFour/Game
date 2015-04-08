@@ -9,6 +9,9 @@ public class GUImanager : MonoBehaviour {
 	public Animator returnButton;
 	public Animator nombreDeJoueur;
 	public static int njoueur;
+	public GameObject cage_button;
+	public GameObject runner_button;
+
 
 	void Awake()
 	{
@@ -62,6 +65,8 @@ public class GUImanager : MonoBehaviour {
 
 	public void LoadScene(string level)
 	{
+		cage_button.SetActive(false);
+		runner_button.SetActive(false);
 		loadingImage.SetActive(true);
 		Application.LoadLevel(level);
 	}
