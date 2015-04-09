@@ -25,7 +25,7 @@ public class PlayerMovement1 : MonoBehaviour
 
 	char NbController ()
 	{
-		if (Input.GetJoystickNames ().Length <= 1)
+		if (Input.GetJoystickNames ().Length < 1)
 			return 'K';
 		else
 			return 'C';
