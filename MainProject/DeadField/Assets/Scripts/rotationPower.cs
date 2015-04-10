@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class rotationPower : MonoBehaviour {
-	public int tempsDePressence = 5;
+	public int tempsDePressence = 20;
 	void Start () 
 	{
 		Destroy(gameObject,tempsDePressence);

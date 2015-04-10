@@ -5,6 +5,7 @@ public class DeathZone : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		Destroy (other.gameObject);
+		if (other.gameObject.tag != "DeathZone")
+			Destroy (other.gameObject);
 	}
 }
