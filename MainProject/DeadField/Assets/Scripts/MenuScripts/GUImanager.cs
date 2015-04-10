@@ -11,11 +11,13 @@ public class GUImanager : MonoBehaviour {
 	public static int njoueur;
 	public GameObject cage_button;
 	public GameObject runner_button;
+	public Animator credit;
 
 
 	void Awake()
 	{
 		mainButtons.SetBool ("IsOnScreen", true);
+		credit.SetBool("IsOnScreen", false);
 	}
 
 	public void OpenSettings()
@@ -23,6 +25,7 @@ public class GUImanager : MonoBehaviour {
 	{
 		mainButtons.SetBool ("IsOnScreen", false);
 		returnButton.SetBool ("IsOnScreen", true);
+		credit.SetBool("IsOnScreen", true);
 		audio.Play ();
 	}
 
@@ -61,6 +64,7 @@ public class GUImanager : MonoBehaviour {
 		mainButtons.SetBool ("IsOnScreen", true);
 		levelSelector.SetBool("IsOnScreen", false);
 		returnButton.SetBool ("IsOnScreen", false);
+		credit.SetBool ("IsOnScreen", false);
 	}
 
 	public void LoadScene(string level)
