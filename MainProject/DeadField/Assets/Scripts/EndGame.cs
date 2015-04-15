@@ -29,9 +29,14 @@ public class EndGame : MonoBehaviour {
 			Restart();
 		}
 
-		if (isEnded && Input.GetKeyDown (KeyCode.R)) {
+		if (isEnded && Input.GetKeyDown (KeyCode.M)) {
 			endHud.SetActive(false);
 			Application.LoadLevel ("MenuScreen");
+		}
+
+		if (isEnded && Input.GetKeyDown (KeyCode.R)) {
+			endHud.SetActive(false);
+			Application.LoadLevel (Application.loadedLevel);
 		}
 	}
 	
