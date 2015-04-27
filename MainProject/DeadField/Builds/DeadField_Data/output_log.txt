@@ -14,33 +14,21 @@ Platform assembly: C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds
 Loading C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.058 seconds
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+- Completed reload, in  0.050 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\System.dll (this message is harmless)
-UnloadTime: 2.076522 ms
+UnloadTime: 2.118732 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 44 unused Assets to reduce memory usage. Loaded Objects now: 1364.
-Total: 0.884352 ms (FindLiveObjects: 0.042821 ms CreateObjectMapping: 0.009929 ms MarkObjects: 0.179663 ms  DeleteObjects: 0.282682 ms)
+Unloading 44 unused Assets to reduce memory usage. Loaded Objects now: 1463.
+Total: 0.878771 ms (FindLiveObjects: 0.045614 ms CreateObjectMapping: 0.010239 ms MarkObjects: 0.167872 ms  DeleteObjects: 0.273685 ms)
 
-UnloadTime: 1.399449 ms
+UnloadTime: 1.413109 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 81 unused Assets to reduce memory usage. Loaded Objects now: 297.
-Total: 6.885539 ms (FindLiveObjects: 0.009929 ms CreateObjectMapping: 0.007757 ms MarkObjects: 0.116982 ms  DeleteObjects: 6.488976 ms)
-
-UnloadTime: 0.538369 ms
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 1364.
-Total: 2.990353 ms (FindLiveObjects: 0.032581 ms CreateObjectMapping: 0.010550 ms MarkObjects: 0.141496 ms  DeleteObjects: 2.519008 ms)
-
-UnloadTime: 1.352594 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 83 unused Assets to reduce memory usage. Loaded Objects now: 297.
-Total: 1.035468 ms (FindLiveObjects: 0.009619 ms CreateObjectMapping: 0.008688 ms MarkObjects: 0.117603 ms  DeleteObjects: 0.639216 ms)
+Unloading 101 unused Assets to reduce memory usage. Loaded Objects now: 298.
+Total: 1.228480 ms (FindLiveObjects: 0.011170 ms CreateObjectMapping: 0.009619 ms MarkObjects: 0.121948 ms  DeleteObjects: 0.790646 ms)
 
