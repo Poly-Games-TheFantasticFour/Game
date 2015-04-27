@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MoveCamera : MonoBehaviour {
 
-	public float timeBeforeMoving = 3f;
+	public float timeBeforeMoving = 3.5f;
 	bool started = false;
 	float cameraSpeed = 3.0f;
 

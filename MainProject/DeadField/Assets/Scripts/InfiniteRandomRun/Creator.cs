@@ -5,7 +5,7 @@ public class Creator : MonoBehaviour {
 
 	public GameObject plateforme;
 	public float numberPoolSize = 2f;
-	public float timeBeforeSpawning = 3f;
+	public float timeBeforeSpawning = 3.5f;
 	float distance = 0f;
 	float plateformLength = 5f;
 	float keyNumber = 1f;
