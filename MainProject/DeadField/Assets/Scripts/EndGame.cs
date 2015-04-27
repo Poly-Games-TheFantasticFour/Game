@@ -42,7 +42,7 @@ public class EndGame : MonoBehaviour {
 	
 	void Restart()
 	{
-		textRestart.text = "Press 'R' to return to menu";
+		textRestart.text = "Press 'M' to return to menu or 'R' to restart";
 		endHud.SetActive(true);
 		isEnded = true;
 	}
