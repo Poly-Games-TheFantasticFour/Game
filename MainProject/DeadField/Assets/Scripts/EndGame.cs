@@ -32,6 +32,10 @@ public class EndGame : MonoBehaviour {
 			textWin.text = "Skeleton wins";
 			Restart();
 		}
+		if (!isEnded && player1 == null && player2 == null && player3 == null && player4 == null){
+			textWin.text = "Draw";
+			Restart();
+		}
 
 		if (isEnded && Input.GetKeyDown (KeyCode.M)) {
 			endHud.SetActive(false);
