@@ -4,21 +4,20 @@ using System.Collections;
 public class stunt1 : MonoBehaviour {
 
 	public static bool estStrunt1 = false;
-	Animator anim; //ici
+	Animator anim;
 	public float stunTime = 1.0f;
 	public float limitMovementTime = 0.2f;
 
 	void OnTriggerStay (Collider other)
 	{
 		if ((Attack2.attaque == true && prendrePowerUp2.estGros == true && other.gameObject.layer == LayerMask.NameToLayer ("Player2")) || 
-			(Attack3.attaque == true && prendrePowerUp3.estGros == true && other.gameObject.layer == LayerMask.NameToLayer ("Player3"))/*|| //permettre le joureur 4 de stunt le joueur1
-		    (Attack4.attaque == true && prendrePowerUp4.estGros == true && other.gameObject.layer == LayerMask.NameToLayer("Player4"))*/)
+			(Attack3.attaque == true && prendrePowerUp3.estGros == true && other.gameObject.layer == LayerMask.NameToLayer ("Player3")) ||
+		    (Attack4.attaque == true && prendrePowerUp4.estGros == true && other.gameObject.layer == LayerMask.NameToLayer("Player4")))
 				StartCoroutine (stunted(other));
-
-
-		if ((Attack2.attaque == true && other.gameObject.layer == LayerMask.NameToLayer("Player2"))|| 
-		    (Attack3.attaque == true && other.gameObject.layer == LayerMask.NameToLayer("Player3"))/*|| //permettre le joureur 4 de stunt le joueur1
-		    (Attack4.attaque == true && other.gameObject.layer == LayerMask.NameToLayer("Player4"))*/)
+		
+		if ((Attack2.attaque == true && other.gameObject.layer == LayerMask.NameToLayer("Player2")) || 
+		    (Attack3.attaque == true && other.gameObject.layer == LayerMask.NameToLayer("Player3")) ||
+		    (Attack4.attaque == true && other.gameObject.layer == LayerMask.NameToLayer("Player4")))
 				StartCoroutine (LimitMovements(other));
 	}
 
@@ -29,9 +28,9 @@ public class stunt1 : MonoBehaviour {
 		if (player.gameObject.layer == LayerMask.NameToLayer ("Player3")) {
 			Attack3.attaque = false;
 		}
-		/*if (player.gameObject.layer == LayerMask.NameToLayer ("Player4")) {
+		if (player.gameObject.layer == LayerMask.NameToLayer ("Player4")) {
 			Attack4.attaque = false;
-		}*/
+		}
 		estStrunt1 = true;
 		anim = GetComponent <Animator> (); //ici
 		anim.SetBool ("IsRunning", false); // ici
@@ -49,9 +48,9 @@ public class stunt1 : MonoBehaviour {
 		if (player.gameObject.layer == LayerMask.NameToLayer ("Player3")) {
 			Attack3.attaque = false;
 		}
-		/*if (player.gameObject.layer == LayerMask.NameToLayer ("Player4")) {
+		if (player.gameObject.layer == LayerMask.NameToLayer ("Player4")) {
 			Attack4.attaque = false;
-		}*/
+		}
 		anim = GetComponent <Animator> (); //ici
 		anim.SetBool ("IsRunning", false); // ici
 		PlayerMovement1.speed = 0.0F;

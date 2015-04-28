@@ -4,7 +4,7 @@ using System.Collections;
 
 public class EndGame : MonoBehaviour {
 
-	public GameObject player1, player2, player3, endHud;
+	public GameObject player1, player2, player3, player4, endHud;
 	public Text textWin, textRestart;
 	bool isEnded = false;
 	
@@ -16,16 +16,20 @@ public class EndGame : MonoBehaviour {
 	{
 		//Score ();
 		
-		if (player1 != null && player2 == null && player3 == null){
+		if (player1 != null && player2 == null && player3 == null && player4 == null){
 			textWin.text = "Zombie wins";
 			Restart();
 		}
-		if (player1 == null && player2 != null && player3 == null){
+		if (player1 == null && player2 != null && player3 == null && player4 == null){
 			textWin.text = "Monster wins";
 			Restart();
 		}
-		if (player1 == null && player2 == null && player3 != null){
+		if (player1 == null && player2 == null && player3 != null && player4 == null){
 			textWin.text = "Knight wins";
+			Restart();
+		}
+		if (player1 == null && player2 == null && player3 == null && player4 != null){
+			textWin.text = "Skeleton wins";
 			Restart();
 		}
 
@@ -33,7 +37,6 @@ public class EndGame : MonoBehaviour {
 			endHud.SetActive(false);
 			Application.LoadLevel ("MenuScreen");
 		}
-
 		if (isEnded && Input.GetKeyDown (KeyCode.R)) {
 			endHud.SetActive(false);
 			Application.LoadLevel (Application.loadedLevel);
