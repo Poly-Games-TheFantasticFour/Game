@@ -37,6 +37,7 @@ public class stunt4 : MonoBehaviour {
 		transform.localScale = new Vector3 (3.25F, 0.75F, 3.25F); 
 		PlayerMovement4.speed = 0.0F;
 		yield return new WaitForSeconds (stunTime);
+		estStrunt4 = false;
 		transform.localScale = new Vector3 (2.25F, 2.25F, 2.25F);
 		PlayerMovement4.speed = 8.0F;
 	}

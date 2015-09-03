@@ -20,13 +20,13 @@ public class Attack1 : MonoBehaviour {
 	{
 		anim = GetComponent <Animator> ();
 		playerSound = GetComponent <AudioSource> ();
-
 	}
 
 	void FixedUpdate () 
 	{
 		timer += Time.deltaTime;
 
+		//Attack on button use if player is not stunned, minimum time between each attack based on timer. Play attack animation.
 		if (!stunt1.estStrunt1 && Input.GetButtonDown("AttackP1")&& timer >= timeBetweenAttacks && Time.timeScale != 0) 
 		{
 			timer = 0.0f;
@@ -37,8 +37,10 @@ public class Attack1 : MonoBehaviour {
 
 	void Attack()
 	{
-		Vector3 DirectionRay = transform.TransformDirection (Vector3.forward);						//Vecteur en direction de l'endroit ou regarde le joueur.
+		//Vecteur en direction de l'endroit ou regarde le joueur.
+		Vector3 DirectionRay = transform.TransformDirection (Vector3.forward);						
 		
+		//Apply force if ennemy player in range during attack.
 		if (isInRange) {
 			ennemy.GetComponent<Rigidbody>().AddForce (DirectionRay.normalized * attactForce, ForceMode.Impulse);
 			playerSound.clip = getHitClip;
@@ -51,6 +53,7 @@ public class Attack1 : MonoBehaviour {
 	}
 
 	//************************Trigger Related functions*************************
+	//True when a ennemy player enter the attack range trigger collider.
 	void OnTriggerStay (Collider other)
 	{
 		if (other.gameObject.layer == LayerMask.NameToLayer("Player2") || other.gameObject.layer == LayerMask.NameToLayer("Player3") || other.gameObject.layer == LayerMask.NameToLayer("Player4")) {
@@ -58,6 +61,7 @@ public class Attack1 : MonoBehaviour {
 			isInRange = true;
 		}
 	}
+	//False when a ennemy player enter the attack range trigger collider.
 	void OnTriggerExit (Collider other)
 	{
 		if (other.gameObject.layer == LayerMask.NameToLayer("Player2") || other.gameObject.layer == LayerMask.NameToLayer("Player3") || other.gameObject.layer == LayerMask.NameToLayer("Player4")) {

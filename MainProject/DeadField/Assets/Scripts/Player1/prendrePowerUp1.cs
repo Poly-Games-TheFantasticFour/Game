@@ -23,9 +23,11 @@ public class prendrePowerUp1 : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{
+		//Destroy powerUp when player enters in contact
 		if (other.gameObject.tag == "powerUp") {
 			Destroy (other.gameObject);
 			
+			//Randomize the powerup and apply to player.
 			do{
 				quelPowerUp = Random.Range(0,nPowerup); // 0 est inclu, nPowerUp est exclus
 			}while(quelPowerUp == actif);
@@ -41,7 +43,8 @@ public class prendrePowerUp1 : MonoBehaviour {
 			}
 		}
 	}
-	
+
+	//Allow the player to grow in size, stun on attack. Cause the player to walk slower and jump lower. Reset all properties after activation time.
 	IEnumerator grossir(){
 		Attack1.attaque = false;
 		estGros = true;
@@ -60,7 +63,8 @@ public class prendrePowerUp1 : MonoBehaviour {
 		if (estGros)
 			normal ();
 	}
-	
+
+	//Allow the player to reduce its size, run faster et jump higher. Cause the player receive more knockback on hit. Reset all properties after activation time.
 	IEnumerator petit (){
 		estPetit = true;
 		estGros = estGlow = false;
@@ -78,7 +82,8 @@ public class prendrePowerUp1 : MonoBehaviour {
 		if (estPetit)
 			normal ();
 	}
-	
+
+	//Allow the player to float on current height. Negate jump function while in use. Reset all properties after activation time.
 	IEnumerator glow(){
 		estGlow = true;
 		estPetit = estGros = false;
@@ -96,7 +101,8 @@ public class prendrePowerUp1 : MonoBehaviour {
 		if (estGlow)
 			normal ();
 	}
-	
+
+	//Reset all normal properties..
 	void normal(){
 		estGros = estPetit = estGlow = false;
 		transform.localScale = new Vector3 (5.0F, 5.0F, 5.0F); 

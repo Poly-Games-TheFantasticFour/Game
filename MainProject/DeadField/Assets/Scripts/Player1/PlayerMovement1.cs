@@ -25,6 +25,7 @@ public class PlayerMovement1 : MonoBehaviour
 
 	char NbController ()
 	{
+		//Check for connected controller to determine the intended input (controller/keyboard).
 		if (Input.GetJoystickNames ().Length < 1)
 			return 'K';
 		else
@@ -33,10 +34,12 @@ public class PlayerMovement1 : MonoBehaviour
 
 	void FixedUpdate ()
 	{
+		//Move player according to inputs.
 		playerRigidbody.AddForce(Physics.gravity * playerRigidbody.mass * gravity);
 		float h = Input.GetAxis ("HorizontalP1" + NbController());
 		float v = Input.GetAxis ("VerticalP1" + NbController());
 		
+		//Jump if touches the ground and input triggered.
 		if (Input.GetButton("JumpP1") && isGrounded) 
 		{
 			Jump();
@@ -51,13 +54,14 @@ public class PlayerMovement1 : MonoBehaviour
 
 	void Jump()
 	{
+		//Add vertical velocity to jump.
 		playerRigidbody.velocity = new Vector3 (0, jumpForce, 0);
-		//playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 		isGrounded = false;
 	}
 
 	void Move (float h, float v)
 	{
+		//Move on the ground and use ClampMagnitude to normalize the diagonal run speed.
 		move.Set (h, 0f, v);
 		playerRigidbody.MovePosition (transform.position + Vector3.ClampMagnitude (move, 1.0f) * speed * Time.deltaTime);
 		
@@ -80,6 +84,7 @@ public class PlayerMovement1 : MonoBehaviour
 	}*/
 	
 	//************************Trigger Related functions*************************
+	//Check if player trigger collider is in contack wth the ground.
 	void OnTriggerStay (Collider other)
 	{
 		if (other.gameObject.layer == LayerMask.NameToLayer("Jump")) {
@@ -93,6 +98,7 @@ public class PlayerMovement1 : MonoBehaviour
 	}
 
 	// ************************Old rotate (via wasd)*************************
+	//Rotate player according to direction (WASD) and use smoothing to make it look more natural.
 	void Rotate (float horizontal, float vertical)
 	{
 		Vector3 targetDirection = new Vector3(horizontal, 0f, vertical);
