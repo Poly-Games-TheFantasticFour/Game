@@ -11,7 +11,7 @@ public class ActivateGravity : MonoBehaviour {
 	}
 
 	void activateGravity(){
-		rigidbody.useGravity = true;
-		rigidbody.isKinematic = false;
+		GetComponent<Rigidbody>().useGravity = true;
+		GetComponent<Rigidbody>().isKinematic = false;
 	}
 }

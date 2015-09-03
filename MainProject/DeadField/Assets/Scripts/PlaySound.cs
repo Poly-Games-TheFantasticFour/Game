@@ -6,6 +6,6 @@ public class PlaySound : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player")
-			audio.Play ();
+			GetComponent<AudioSource>().Play ();
 	}
 }

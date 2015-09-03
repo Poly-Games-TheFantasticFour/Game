@@ -48,13 +48,13 @@ public class prendrePowerUp2 : MonoBehaviour {
 		estPetit = estGlow  = false;
 
 		transform.localScale = new Vector3 (3F, 3F, 3F); 
-		transform.rigidbody.mass = 8F; 
+		transform.GetComponent<Rigidbody>().mass = 8F; 
 		PlayerMovement2.speed = 6.0F;					//http://answers.unity3d.com/questions/400977/changing-a-variable-in-one-script-using-another-sc.html
 		Attack2.attactForce = 100.0F;
 		Attack2.timeBetweenAttacks = 0.88f;
 
 		halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
-		rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
 		yield return new WaitForSeconds (tempsActivation);
 		if (estGros)
@@ -66,13 +66,13 @@ public class prendrePowerUp2 : MonoBehaviour {
 		estGros = estGlow = false;
 
 		transform.localScale = new Vector3 (0.75F, 0.75F, 0.75F); 
-		transform.rigidbody.mass = 5f; 
+		transform.GetComponent<Rigidbody>().mass = 5f; 
 		PlayerMovement2.speed = 10F;
 		Attack2.timeBetweenAttacks = 0.40F;
 		Attack2.attactForce = 75.0f;
 
 		halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
-		rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
 		yield return new WaitForSeconds (tempsActivation);
 		if (estPetit)
@@ -83,14 +83,14 @@ public class prendrePowerUp2 : MonoBehaviour {
 		estGlow = true;
 		estPetit = estGros = false;
 
-		transform.rigidbody.mass = 6f; 
+		transform.GetComponent<Rigidbody>().mass = 6f; 
 		PlayerMovement2.speed = 8F;
 		Attack2.attactForce = 100.0f;
 		Attack2.timeBetweenAttacks = 0.88f;
 		transform.localScale = new Vector3 (1.5F, 1.5F, 1.5F);
 
 		halo.GetType().GetProperty("enabled").SetValue(halo, true, null);
-		rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
+		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
 
 		yield return new WaitForSeconds (tempsActivation);
 		if (estGlow)
@@ -100,12 +100,12 @@ public class prendrePowerUp2 : MonoBehaviour {
 	void normal(){
 		estGros = estPetit = estGlow = false;
 		transform.localScale = new Vector3 (1.5F, 1.5F, 1.5F); 
-		transform.rigidbody.mass = 6f; 
+		transform.GetComponent<Rigidbody>().mass = 6f; 
 		PlayerMovement2.speed = 8F;
 		Attack2.attactForce = 100.0f;
 		Attack2.timeBetweenAttacks = 0.88f;
 
 		halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
-		rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 	}
 }

@@ -21,11 +21,11 @@ public class blink : MonoBehaviour {
 		float timeFinish = Time.time + blinkTime;
 		while (Time.time < timeFinish) {
 			yield return new WaitForSeconds(Random.value/10);
-				gameObject.renderer.enabled = !gameObject.renderer.enabled;
+				gameObject.GetComponent<Renderer>().enabled = !gameObject.GetComponent<Renderer>().enabled;
 			}
 		//audio.clip = startClip;
 		//audio.Play ();
-		gameObject.renderer.enabled = false;
+		gameObject.GetComponent<Renderer>().enabled = false;
 	}
 }
 

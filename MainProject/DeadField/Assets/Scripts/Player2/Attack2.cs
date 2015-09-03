@@ -40,7 +40,7 @@ public class Attack2 : MonoBehaviour {
 		Vector3 DirectionRay = transform.TransformDirection (Vector3.forward);						//Vecteur en direction de l'endroit ou regarde le joueur.
 		
 		if (isInRange) {
-			ennemy.rigidbody.AddForce (DirectionRay.normalized * attactForce, ForceMode.Impulse);
+			ennemy.GetComponent<Rigidbody>().AddForce (DirectionRay.normalized * attactForce, ForceMode.Impulse);
 			playerSound.clip = getHitClip;
 			attaque = true;
 			isInRange = false;

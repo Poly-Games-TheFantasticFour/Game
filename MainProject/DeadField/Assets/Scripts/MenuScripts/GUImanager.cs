@@ -26,7 +26,7 @@ public class GUImanager : MonoBehaviour {
 		mainButtons.SetBool ("IsOnScreen", false);
 		returnButton.SetBool ("IsOnScreen", true);
 		credit.SetBool("IsOnScreen", true);
-		audio.Play ();
+		GetComponent<AudioSource>().Play ();
 	}
 
 	public void openGameSelection()
@@ -34,14 +34,14 @@ public class GUImanager : MonoBehaviour {
 	{
 		nombreDeJoueur.SetBool("IsOnScreen", false);
 		levelSelector.SetBool("IsOnScreen", true);
-		audio.Play ();
+		GetComponent<AudioSource>().Play ();
 	}
 
 	public void nJoueur(){
 		nombreDeJoueur.SetBool("IsOnScreen", true);
 		mainButtons.SetBool ("IsOnScreen", false);
 		returnButton.SetBool ("IsOnScreen", true);
-		audio.Play ();
+		GetComponent<AudioSource>().Play ();
 	}
 
 	public void joueur4(){

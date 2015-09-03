@@ -22,11 +22,11 @@ public class FallingPlateform : MonoBehaviour {
 
 			yield return new WaitForSeconds(timeBetweenNumber);
 		}
-		gameObject.renderer.material.color = Color.white;
+		gameObject.GetComponent<Renderer>().material.color = Color.white;
 
 		yield return new WaitForSeconds (timeInWhite);
-		rigidbody.useGravity = true;
-		rigidbody.isKinematic = false;
+		GetComponent<Rigidbody>().useGravity = true;
+		GetComponent<Rigidbody>().isKinematic = false;
 	}
 
 }

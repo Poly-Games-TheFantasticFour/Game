@@ -10,7 +10,7 @@ public class Remover : MonoBehaviour {
 	{ 
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Jump"))
 		{
-			other.gameObject.renderer.material.color = Color.white;
+			other.gameObject.GetComponent<Renderer>().material.color = Color.white;
 			StartCoroutine (Fall (other));
 		}
 	}
@@ -18,7 +18,7 @@ public class Remover : MonoBehaviour {
 	IEnumerator Fall(Collider other)
 	{
 		yield return new WaitForSeconds (Random.Range(0f,timeBeforeFalling));
-		other.rigidbody.useGravity = true;
-		other.rigidbody.isKinematic = false;
+		other.GetComponent<Rigidbody>().useGravity = true;
+		other.GetComponent<Rigidbody>().isKinematic = false;
 	}
 }

@@ -1,52 +1,43 @@
-Initialize engine version: 4.6.3f1 (4753d8b6ef2b)
+Initialize engine version: 5.1.3f1 (b0a23b31c3d8)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
     Renderer: Intel(R) HD Graphics 4600 (ID=0x416)
     Vendor:   Intel
-    VRAM:     896 MB
+    VRAM:     128 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.378 seconds
+Platform assembly: C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.043 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-Platform assembly: C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Julien\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\System.dll (this message is harmless)
-UnloadTime: 30.081659 ms
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+<RI> Initialized touch support.
+Platform assembly: C:\Users\julie\Documents\GitHub\MainProject\DeadField\Builds\DeadField_Data\Managed\System.dll (this message is harmless)
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.200270 ms
 
-Unloading 44 unused Assets to reduce memory usage. Loaded Objects now: 1559.
-Total: 1.222664 ms (FindLiveObjects: 0.070135 ms CreateObjectMapping: 0.017106 ms MarkObjects: 0.253171 ms  DeleteObjects: 0.421667 ms)
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1546.
+Total: 0.435349 ms (FindLiveObjects: 0.073556 ms CreateObjectMapping: 0.015823 ms MarkObjects: 0.270703 ms  DeleteObjects: 0.070134 ms)
 
-UnloadTime: 2.538130 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.864712 ms
 
-Unloading 116 unused Assets to reduce memory usage. Loaded Objects now: 302.
-Total: 2.843048 ms (FindLiveObjects: 0.023948 ms CreateObjectMapping: 0.026086 ms MarkObjects: 0.266001 ms  DeleteObjects: 1.982179 ms)
-
-UnloadTime: 0.650890 ms
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 36 unused Assets to reduce memory usage. Loaded Objects now: 1519.
-Total: 1.171346 ms (FindLiveObjects: 0.066286 ms CreateObjectMapping: 0.020955 ms MarkObjects: 0.233499 ms  DeleteObjects: 0.440484 ms)
-
-UnloadTime: 2.488095 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 1519.
-Total: 1.232073 ms (FindLiveObjects: 0.108624 ms CreateObjectMapping: 0.035495 ms MarkObjects: 0.276264 ms  DeleteObjects: 0.354525 ms)
-
-UnloadTime: 2.535564 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 156 unused Assets to reduce memory usage. Loaded Objects now: 301.
-Total: 2.778045 ms (FindLiveObjects: 0.023093 ms CreateObjectMapping: 0.031218 ms MarkObjects: 0.224091 ms  DeleteObjects: 2.001851 ms)
+Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 1546.
+Total: 0.494793 ms (FindLiveObjects: 0.093228 ms CreateObjectMapping: 0.017533 ms MarkObjects: 0.340838 ms  DeleteObjects: 0.042765 ms)
 
