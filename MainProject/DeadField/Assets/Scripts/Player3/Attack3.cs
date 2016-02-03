@@ -23,7 +23,7 @@ public class Attack3 : MonoBehaviour {
 		
 	}
 	
-	void FixedUpdate () 
+	void Update () 
 	{
 		timer += Time.deltaTime;
 		

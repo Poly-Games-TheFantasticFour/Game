@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GUImanager : MonoBehaviour {
 	
@@ -72,7 +73,7 @@ public class GUImanager : MonoBehaviour {
 		cage_button.SetActive(false);
 		runner_button.SetActive(false);
 		loadingImage.SetActive(true);
-		Application.LoadLevel(level);
+        SceneManager.LoadScene(level);
 	}
 
 	public void ApplicationQuit (){

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour {
 
@@ -39,12 +40,12 @@ public class EndGame : MonoBehaviour {
 
 		if (isEnded && Input.GetKeyDown (KeyCode.M)) {
 			endHud.SetActive(false);
-			Application.LoadLevel ("MenuScreen");
+            SceneManager.LoadScene("MenuScreen");
 		}
 		if (isEnded && Input.GetKeyDown (KeyCode.R)) {
 			endHud.SetActive(false);
-			Application.LoadLevel (Application.loadedLevel);
-		}
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 	}
 	
 	void Restart()

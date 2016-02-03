@@ -32,7 +32,7 @@ public class PlayerMovement1 : MonoBehaviour
 			return 'C';
 	}
 
-	void FixedUpdate ()
+	void Update ()
 	{
 		//Move player according to inputs.
 		playerRigidbody.AddForce(Physics.gravity * playerRigidbody.mass * gravity);

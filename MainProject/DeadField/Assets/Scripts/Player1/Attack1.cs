@@ -19,10 +19,15 @@ public class Attack1 : MonoBehaviour {
 	void Awake () 
 	{
 		anim = GetComponent <Animator> ();
-		playerSound = GetComponent <AudioSource> ();
+		
 	}
 
-	void FixedUpdate () 
+    void Start()
+    {
+        playerSound = gameObject.GetComponent<AudioSource>();
+    }
+
+	void Update () 
 	{
 		timer += Time.deltaTime;
 

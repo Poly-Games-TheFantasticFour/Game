@@ -31,7 +31,7 @@ public class PlayerMovement4 : MonoBehaviour
 			return 'C';
 	}
 
-	void FixedUpdate ()
+	void Update ()
 	{
 		playerRigidbody.AddForce(Physics.gravity * playerRigidbody.mass * gravity);
 		float h = Input.GetAxis ("HorizontalP4" + NbController());
